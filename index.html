@@ -1,0 +1,979 @@
+<!doctype html>
+<html>
+<head>
+  <title>On the Limitations of Compute Thresholds as a Governance Strategy</title> 
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" value="summary">
+  <meta name="twitter:title" content="On the Limitations of Compute Thresholds as a Governance Strategy">
+  <!-- <meta name="twitter:description" content="What do pruned deep neural networks forget?"> -->
+  <meta name="twitter:url" content="https://computing-thresholds.github.io/">
+  <meta name="twitter:image" content="https://cdn.glitch.com/02868eea-fe84-443e-964a-8f04885fa5fa%2Faccuracy_distribution_updated.png?v=1574118491306">
+  <meta name="twitter:site" content="@CohereForAI" />
+  
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:title" content="On the Limitations of Compute Thresholds as a Governance Strategy" />
+  <meta property="og:type" content="article" />
+  <!-- <meta property="og:description" content="What do pruned deep neural networks forget?" /> -->
+  <meta property="og:image" content="https://cdn.glitch.com/02868eea-fe84-443e-964a-8f04885fa5fa%2Faccuracy_distribution.png?v=1574118354833" />
+  <meta property="og:url" content="https://computing-thresholds.github.io/" />
+  <!-- <meta property="og:site_name" content="Deep Neural Network Pruning"> -->
+  <meta property="og:locale" content="en_US">
+  
+  
+  <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+  <meta name="citation_title" content="On the Limitations of Compute Thresholds as a Governance Strategy: Measuring the Disparate Impact of Model Pruning">
+  <meta name="citation_fulltext_html_url" content="https://computing-thresholds.github.io/">
+   <!-- Update paper link  -->
+  <meta name="citation_pdf_url" content="https://arxiv.org/abs/1911.05248">
+  <meta name="citation_fulltext_world_readable" content="">
+  <meta name="citation_author" content="Hooker, Sara">
+  <meta name="citation_author_institution" content="Cohere For AI">
+  <!-- Update publication date -->
+  <meta name="citation_publication_date" content="2024/08/13">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152824096-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-152824096-1');
+</script>
+
+  <!--  https://schema.org/Article -->
+  <meta property="description" itemprop="description" content="On the Limitations of Compute Thresholds as a Governance Strategy.">
+  <meta property="article:author" content="Sara Hooker">
+  <meta property="article:url" content="https://computing-thresholds.github.io/" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <style>
+     body {
+      font-family: "Roboto", "Helvetica", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+    }
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    table td {
+      font-size: 12px;
+      text-align: center;
+      outline: 1px solid white;
+      padding: 0;
+      margin: 0;
+    }
+    table.inner td {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      width: 25%;
+    }
+    .footer-row {
+      height: 15px;
+    }
+    table.inner tr {
+      border: 0;
+    }
+    table.inner th {
+      padding: 8px;
+    }
+    table th {
+      font-size: 11px;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    thead, tbody { display: block; }
+    .rotated {
+      transform: rotate(90deg);
+      transform-origin: left bottom 0;
+      margin-top: -111px;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 8px;
+    }
+    #headers {
+      z-index: 1000;
+      background-color: white;
+      height: 65px;
+      vertical-align: middle;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    #headers span {
+      background-color: white;
+      display: inline-block;
+      line-height: 65px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cover {
+      background: #1e283a;
+    }
+    .cover-container {
+      padding-top: 10px;
+      padding-bottom: 60px;
+    }
+    .descriptions_, .description_ {
+      padding-top: 20px;
+    }
+    .cover-container, .descriptions_, .description_ {
+      padding-right: 5px;
+      padding-left: 5px;
+      margin-right: auto;
+      margin-left: auto;   
+    }
+  
+    
+  
+    @media (min-width: 415px) {
+      authors .authors-affiliations,
+       .base-grid, .imgs-container
+      .cover-container, .descriptions_, .description_, .column_portfolio, .column_portfolio_,  .column_portfolio, .column_portfoliofinal {
+        width: 500px;
+      }
+      .column_portfolio_  .column_portfolio_final .column_portfolio figcaption, .column_portfolio_,  .column_portfolio, .column_portfoliofinal {
+        padding: 0;
+        padding-top: 4px;
+        word-wrap: break-word;
+        word-break: break-word;
+      }
+    }
+    @media (min-width: 768px) {
+      authors .authors-affiliations, .imgs-container, 
+      .cover-container, .descriptions_, .description_, .column_portfolio, .column_portfolio_  .column_portfolio .column_portfoliofinal {
+        width: 650px;
+      }
+    }
+    @media (min-width: 992px) {
+      authors .authors-affiliations, .imgs-container, 
+      .cover-container, .descriptions_, .description_, .column_portfolio, .column_portfolio_,  .column_portfolio, .column_portfoliofinal  {
+        width: 770px;
+      }
+    }
+    @media (min-width: 1200px) {
+      authors .authors-affiliations, .imgs-container, 
+      .cover-container, .descriptions_, .description_, .column_portfolio, .column_portfolio_,  .column_portfolio, .column_portfoliofinal {
+        width: 970px;
+      }
+    }
+    .cover h1 {
+      font-family: "Roboto", "Gotham A", "Gotham B";
+      letter-spacing: 0.05em;
+      font-size: 63px;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+    }
+    .cover h3 {
+      font-size: 30px;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+    .descriptions_ h3 {
+      color: #313b4e;
+      opacity: .8;
+    }
+    
+    .descriptions_ p {
+      color: #313b4e;
+      opacity: .8;
+      font-size: 16px;
+    }
+    .cover {
+      color: #ddd;
+    }
+    
+    .authors {
+      margin-top: -40px;
+      overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem;
+    line-height: 1.8em;
+    padding: 1.5rem 0;
+    min-height: 1.8em;
+    }
+    
+    .subtitle {
+      margin-top: -20px;
+    }
+    .icons {
+      margin-top: 30px;
+      padding-left: 4px;
+    }
+    .icons a {
+      display: inline-block;
+      font-size: 16px;
+      color: #ccc;
+      text-decoration: none;
+    }
+    .paper-icon {
+      display: inline-block;
+    }
+    .paper-icon a {
+      line-height: 35px;
+      vertical-align: top;
+    }
+    .paper-icon:hover a {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .description_ p {
+      width: 100%;
+      font-size: 16px;
+    }
+    .description_ img {
+      vertical-align: middle;
+      width: 100%;
+    }
+    .imgs-container {
+      display: table-row;
+    }
+    .img-container {
+      color: #62779c;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      padding-right: 6px;
+      display: table-cell;
+      width: 33%;
+    }
+    #headers.fixed-header {
+      position: fixed;
+      top: 0;
+    }
+    #table-container.fixed-header {
+      margin-top: 106px;
+    }
+    .image-label {
+      font-size: 15px;
+      text-align: left;
+      padding-bottom: 4px;
+      padding-top: 6px;
+      padding-left: 2px;
+      font-weight: normal;
+    }
+    .img-times-selector-container {
+      margin-left: -80px;
+      margin-top: -45px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+     }
+    .img-times-selector {
+      width: 175px;
+    }
+    #table {
+      margin-top: 0px;
+      width: 100%;
+    }
+    
+* {
+  box-sizing: border-box;
+}
+/* Center website */
+.row {
+  margin: 8px -16px;
+}
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column_portfolio {
+  padding: 3px;
+}
+/* Create three equal columns that floats next to each other */
+.column_portfolio {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+}
+    
+.column_portfolio_  .column_portfolio .column_portfoliofinal figcaption {
+      padding: 4px 8px;
+     word-wrap: break-all;
+      word-break: break-all;
+  }
+    
+/* Create three equal columns that floats next to each other */
+.column_portfolio_ {
+  float: left;
+  width: 25.00%;
+  display: none; /* Hide columns by default */
+}
+    
+.column_portfoliofinal {
+  float: left;
+  width: 100.00%;
+  display: none; /* Hide columns by default */
+}
+    
+.column_portfoliofinalfinal {
+  float: left;
+  width: 25.00%;
+  display: none; /* Hide columns by default */
+}
+.column_header {
+  float: left;
+  width: 100.00%;
+  display: none; /* Hide columns by default */
+}
+    
+.column_header_ {
+  float: left;
+  width: 100.00%;
+  display: none; /* Hide columns by default */
+}
+    
+.column_headerfinal {
+  float: left;
+  width: 100.00%;
+  display: none; /* Hide columns by default */
+}
+    
+.column_headerfinalfinal {
+  float: left;
+  width: 100.00%;
+  display: none; /* Hide columns by default */
+}
+  
+    
+.column_two_fig {
+  float: left;
+  width: 50.00%;
+  display: none; /* Hide columns by default */
+}
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+	  
+.content_reduced {
+  background-color: white;
+  padding: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+    
+.content_reduced_slightly {
+  background-color: white;
+  padding: 2px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+    
+.content_resized {
+  background-color: white;
+  padding: 2px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+/* Style the buttons */
+.btn {
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  padding: 12px 16px;
+  font-size: 14px;
+  background-color:#599bb3;
+  color:#ffffff;
+  background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  text-shadow:0px 1px 0px #3d768a;
+  margin-right: auto;
+  margin-left: auto;  
+   margin-bottom:5px;
+  cursor:pointer;
+}
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+/* Add a dark background color to the active button */
+.btn.active_1, .btn.active_2, .btn.active_3, .btn.active_4, .btn:target
+{ background:linear-gradient(to right, #666 3%, #666  100%);
+  color: white;
+  cursor:none;
+}
+    
+figcaption,
+.figcaption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+   font-weight: bold;
+  line-height: 1.5em;
+}
+    
+figcaption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+figcaption b,
+figcaption .strong_, {
+  font-weight: bold;
+  font-size: 14px;
+  color: #180A3E;
+}
+    
+</style>
+</head>
+<body>
+  <div id="scroll-container">
+    <div class="cover">
+      <div class="cover-container">
+        <div class="icons">
+          <div class="paper-icon">
+            <!-- Update Paper Link -->
+            <a href="https://arxiv.org/abs/1911.05248">
+              <img src="https://cdn.glitch.com/a08d19a0-dea5-4f06-9627-caa859e2d931%2Fpaper_icon.png?v=1572561063939" style="width: 100px"/><br>Paper
+            </a>
+          </div>
+          <!-- <div class="paper-icon" style="margin-left: 20px">
+            <a href="https://github.com/google-research/google-research/tree/master/pruning_identified_exemplars">
+              <img src="https://cdn.glitch.com/a08d19a0-dea5-4f06-9627-caa859e2d931%2Fcode_icon.png?v=1572562103868" style="width: 100px"/><br>Code
+            </a>
+          </div>     -->
+        </div>
+        <div class="title"><h2>On the Limitations of Compute Thresholds as a Governance Strategy</h2></div>
+        <div class="authors">Sara Hooker</div>
+      <div class="institutions"></div>
+       </div>
+    </div>
+      <div class="descriptions_">
+	<h3>The Uncertain Relationship Between Compute and Risk</h3>
+        </div>
+         <div class="description_">
+          <p> Many inventions are re-purposed for means unintended by their designers. Initially, the magnetron tube 
+            was developed for radar technology during World War II. In 1945, a self-taught American engineer, Percy Spencer, 
+            noticed that a chocolate bar melted in his pocket whenever he was close to a radar set. This innocuous discovery 
+            resulted in the patent for the first microwave \citep{inbook}. In a similar vein, deep neural networks only began 
+            to work when an existing technology was unexpectedly re-purposed. A graphical processing unit (GPU) was originally 
+            introduced in the 1970s as a specialized accelerator for video games and for developing graphics for movies and 
+            animation. In the 2000s, like the magnetron tube, GPUs were re-purposed for an entirely unimagined use 
+            case – to train deep neural networks \citep{Chellapilla2006,hooker2021,OH20041311kyoung,Payne2005}. 
+            GPUs had one critical advantage over CPUs - they were far better at parallelizing matrix 
+            multiples \citep{BRODTKORB20134,DettmersGPU}, a mathemetical operation which dominates the definition of deep 
+            neural network layers \citep{fawzi2022discovering,davies2024}. This higher number of floating operation points 
+            per second (FLOP/s) combined with the clever distribution of training between GPUs unblocked the training of 
+            deeper networks. The depth of the network turned out to be critical. Performance on ImageNet jumped with ever 
+            deeper networks in 2011 \citep{inproceedings2011}, 2012 \citep{Krizhevsky2012} and 
+            2015 \citep{szegedy2014going}. A striking example of this jump in compute is a comparison of the now famous 
+            2012 Google paper which used 16,000 CPU cores to classify cats \citep{le2012building} to a paper published a 
+            mere year later that solved the same task with only two CPU cores and four GPUs \citep{coates13}. </p>
+            
+           <p> This would ignite a rush for compute which has led to a bigger-is-better race in the number of model parameters 
+            over the last decade \citep{2016Canziani,strubell2019energy,rae2021scaling,raffel2020exploring,bommasani2021opportunities,bender_gebru_2021}. 
+            The computer scientist Ken Thompson famously said \textit{``When in doubt, use brute force.''}  
+            This was formalized as the “bitter lesson” by Rich Sutton who posited that computer science history tells us that 
+            throwing more compute at a problem has consistently outperformed all attempts to leverage human knowledge of a domain 
+            to teach a model \citep{SilverBittrLesson}. In a punch to the ego of every computer scientist out there, what Sutton is 
+            saying is that symbolic methods that codify human knowledge have not worked as well as letting a model learn patterns 
+            for itself coupled with ever-vaster amounts of compute.  </p>
+	   
+             <p> <b> Sutton right?</b> Certainly, he is correct that scaling has been a widely favored formula because 
+                it has provided persuasive gains in overall performance – size is the most de-risked tool we have to unlock 
+                new gains. As the computer scientist Michael Jordan quipped \textit{``Today we can’t think without holding a 
+                    piece of metal.''} Increasing compute also conveniently fits into the cadence of quarterly industry 
+                    planning, it is less risky to propose training a bigger model than it is to propose an alternative 
+                    optimization technique. However, relying on compute alone misses a critical shift that is underway in the 
+                    relationship between compute and performance. It is not always the case that bigger models result in better 
+                    performance. The bitter lesson doesn't explain why Falcon 180B \citep{almazrouei2023falconseriesopenlanguage} is 
+                    easily outperformed by far smaller open weights models such as Llama-3 8B \citep{llama3modelcard}, 
+                    Command R 35B \citep{cohere_c4ai_command_r_plus}, Gemma 27B \citep{gemma_2024}. It also doesn't explain why 
+                    Aya 23 8B \citep{aryabumi2024aya} easily outperforms BLOOM 176 B \citep{workshop2023bloom176bparameteropenaccessmultilingual} 
+                    despite having only 4.5\% of the parameters.   </p>
+
+             <!-- Add Figure 3 from Paper here -->
+
+                 <!-- <div class="content_reduced_slightly">
+     <img src="https://cdn.glitch.com/f1ebd1ee-d1ac-4538-8ad5-0034e332e4ae%2Fsynaptic_pruning_image.png?v=1574277111414" alt="abstract_1" style="width:100%">
+      <div class="figcaption">
+         <strong_>Synaptic pruning removes redundant neurons and strengthens connections that are most useful for the environment. (Figure courtesy of Seeman, 1999)</strong_><br>
+       </div>
+             </div>   -->
+    
+		 <p> These are not isolated examples, but rather indicative of an overall trend where there is no guarantee 
+            larger models consistently outperform smaller models. Figure \ref{fig:above_13_b} plots the scores of models 
+            submitted to the \href{https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard}{Open LLM Leaderboard} 
+            over the last two years. Here, we plot \textit{large models} with more than 13 billion parameters whose leaderboard 
+            score is less than the top performing \textit{small model} with less than 13 billion parameters. 
+            We observe that over time, more and more large models have been submitted that are outperformed by the best 
+            small model daily submission. To understand why this is the case, we must understand what key variables have been 
+            driving gains in performance over the last decade. In an era where there are diminishing returns for the amount 
+            of compute available \citep{lohn2022ai,2020Thompson}, optimization and architecture breakthroughs define the rate 
+            of return for a given unit of compute. \textbf{It is this rate of return which is most critical to the pace of
+                progress and to the level of risk incurred by additional compute}.</p>
+
+        </div>
+
+        <div class="description_">
+            <h4> A shift in the relationship between compute and performance </h4>
+            <p> In complex systems, it is challenging to manipulate one variable in isolation and foresee all implications. 
+                Throughout the 20th century doctors recommended removing tonsils in response to any swelling or infection, 
+                but research has recently shown the removal may lead to higher incidence of throat cancer \citep{liang2023}. 
+                Early televised drug prevention advertisements in the 2000s led to increased drug use \citep{Terry-McElrath2011}. 
+                In a similar vein, the belief that more compute equates with more risk belies a far more complex picture that 
+                requires re-examining the relationship between performance and compute. A key limitation of simply throwing 
+                more scale at a task is that the relationship between additional compute and generalization remains poorly 
+                understood. A growing body of research suggests that the relationship between compute and performance is far more 
+                complex. Empirical evidence suggests that small models are rapidly becoming more performant and riskier. </p>
+
+            <p> <b>Data quality reduces reliance on compute.</b> Models trained on better data do not require as much compute. 
+                A large body of work has emerged which shows that efforts to better curate training corpus, including 
+                de-duping \citep{taylor2022galactica, kocetkov2022stack}, data pruning \citep{marion2023more,ayadata2024,sorscher2023neural,albalak2024survey,tirumala2023d4,chimoto2024critical} 
+                or data prioritization \citep{boubdir2023prompts,thakkar2023selfinfluence} can compensate for more weights. 
+                This suggests that the number of learnable parameters is not definitively the constraint on improving performance; 
+                investments in better data quality mitigate the need for more weights \citep{ayadata2024,penedo2023refinedweb,raffel2020exploring,lee2022deduplicating}. 
+                If the size of a training dataset can be reduced without impacting performance \citep{marion2023more}, 
+                training time is reduced. This directly impacts the number of training FLOP and means less compute is needed. </p>
+
+            <p> <b>Optimization breakthroughs compensate for compute.</b> Progress over the last few years has been as 
+                much due to optimization improvements as it has been due to compute. This includes extending pre-training 
+                with instruction finetuning to teach models instruction following \citep{singh2024aya}, model distillation 
+                using synthetic data from larger more performant "teachers" to train highly capable, smaller 
+                "students" \citep{gemmateam2024gemma,aryabumi2024aya}, chain-of-thought reasoning \citep{wei2023chainofthought,hsieh2023distilling}, 
+                increased context-length \citep{xiong2023effective}, enabled tool-use \citep{qin2023toolllm,wang2023voyager}, 
+                retrieval augmented generation \citep{pozzobon2023goodtriever,NEURIPS2020_6b493230}, and preference training to align 
+                models with human feedback \citep{dang2024rlhfspeaklanguagesunlocking,ahmadian2024basics,ouyang2022LLMRLHF,bai2022constitutional,lee2023rlaif,tunstall2023zephyr,khalifa2021distributional,rafailov2023DPO,azar2023IPO}. 
+                All these techniques compensate for the need for weights or expensive prolonged training \citep{ho2024algorithmicprogresslanguagemodels}. 
+                All things equal, these have been shown to dramatically improve model performance relative to a model trained 
+                without these optimization tricks given the same level of compute \citep{davidson2023ai,hernandez2020,erdil2023algorithmic,METR_undated,liu2024sophia}. 
+                In Figure \ref{fig:13b_models}, we plot the best daily 13B or smaller model submitted to the \href{https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard}{Open LLM Leaderboard} over time. 
+                In a mere span of 2 years, the best-performing daily scores from small model went from an average of 38.59\% across to an average of 77.15\% across 2024 submissions.
+                The takeaway is clear -- smaller models with the same amount of capacity are becoming more and more performant. </p>
+
+            <p> <b>Architecture plays a significant role in determining scalability</b> The introduction of a new architecture
+                design can fundamentally change the relationship between compute and 
+                performance \citep{tay2022scaling,Sevilla_2022,ho2024algorithmic} and render any compute threshold that is 
+                set irrelevant. For example, the key breakthroughs in AI adoption around the world were the introduction of 
+                architectures like convolutional neural networks (CNNs) for vision \citep{inproceedings2011,Krizhevsky2012,szegedy2014going} and 
+                Transformers for language modeling \citep{vaswani2023attention}. </p>
+
+            <p> While deep neural networks represent a huge step forward in performance for a given level of compute, what is 
+                often missed is that our architectures also represent the ceiling in what is achievable through scaling. 
+                While progress has revolved around deep neural networks for the last decade, there is much to suggest that the 
+                next significant gain in efficiency will require an entirely different architecture. Deep neural networks remain 
+                very inefficient as an algorithm. Our typical training regimes require that all examples are shown the same 
+                number of times during the training \citep{xue2023adaptive}. All modern networks are trained based upon 
+                minimization of average error \citep{Goodfellow-et-al-2016}. This means that learning rare artifacts requires 
+                far more training time or capacity due to the diluted signal of infrequent attributes relative to the most 
+                frequent patterns in the dataset \citep{Achille2017CriticalLP, jiang2020exploring, Mangalam2019DoDN, 2020fartash,frankle2020,pmlr-v70-arpit17a}. 
+                Small models are already good at learning the most frequent features, and most easy features and common patterns are 
+                learned early on training with much harder rare features learned in later stages \citep{agarwal2020estimating,paul2021deep,Mangalam2019DoDN,siddiqui2022metadata,abbe2021staircasepropertyhierarchicalstructure}. 
+                When we radically scale the size of a model, we show the most gains in performance on are rare and underrepresented 
+                attributes in the dataset -- the long-tail \citep{hooker2019compressed,hooker2020characterising}. 
+                Put differently, scaling is being used to inefficiently learn a very small fraction of the overall training 
+                dataset. Our reliance on global updates also results in catastrophic forgetting, where performance deteriorates 
+                on the original task because the new information interferes with previously learned behavior \citep{Mcclelland1995,pozzobon2023goodtriever}. 
+                All this suggests that our current architecture choices are probably not final and key disruptions lie ahead. 
+                This is likely to radically change any scaling relationships, in the same way it has done in the last decade. 
+                For example, it is unlikely any prediction of how compute scales based upon architectures before deep neural networks holds 
+                true post-2012 after the introduction of convolutional neural networks.</p>
+  </div>
+           
+    <!-- Uncomment below to create image container with key findings -->
+
+           <!-- <div class="imgs-container">
+        
+            <div class="descriptions_">
+              <p> The primary findings of our work can be summarized as follows: </p>
+
+          <div class="img-container">1. Pruning would be better described as "selective brain damage." Pruning has a non-uniform impact across classes; a fraction of classes are disproportionately and systematically impacted by the introduction of sparsity.</div>
+           <div class="img-container">2. The examples most impacted by pruning, which we term <i>Pruning Identified Exemplars</i> (PIEs), are more challenging for both pruned and non-pruned models to classify.</div>
+          <div class="img-container">3. Pruning significantly reduces robustness to image corruptions and natural adversarial images.</div>
+      </div>
+     </div> -->
+   
+   <div class="descriptions_">
+  <h3>Avoiding a FLOP FLOP</h3>
+     </div>
+
+<div class="description_">    
+   <p> <i>Are FLOP a reliable proxy for overall compute?</i> Even if the relationship between compute and generalization 
+    were stable – there are difficulties operationalizing FLOP as a metric.  FLOP \citep{Goldberg1991} refers 
+    to <i>floating-point operations</i>, and has a fairly straightforward definition: sum up all the math operations in 
+    floating point (such as addition, subtraction, multiplication, and division). In the 1950s and 1960s, as computers 
+    were becoming more prevalent, the need for a standard measure of performance arose. FLOP are particularly useful in fields 
+    that require floating-point calculations, such as scientific computations, advanced analytics, and 3D graphics processing. 
+    This is because all these areas are dominated by simple primitive mathematical operations – for example, FLOP tend to be 
+    closely associated with the size of models because deep neural network layers are dominated by a single 
+    operation -- matrix multiplies -- which can be decomposed into a set of floating point operations \citep{fawzi2022discovering,davies2024}. </p>
+   
+    <p> <b>We first begin by noting there are some reasons FLOP are attractive as a policy measure.</b> The primary one is 
+        that FLOP provides a standardized way to compare across different hardware and software stacks. FLOP counts 
+        don’t change across hardware – the number of mathematical operations is the same no matter what hardware you train a 
+        model on. In a world where hardware is increasingly heterogeneous \citep{hooker2021} and it is hard to replicate the 
+        exact training setting due to a lack of software portability \citep{NEURIPS2023_42c40aff}, it is attractive to use a 
+        metric that doesn’t depend on replicating exact infrastructure. It also neatly sidesteps reporting issues that could 
+        occur if relying only on the number of hardware devices used to train a model. The rapidly increasing performance of 
+        new hardware generations \citep{epoch2023trendsinmachinelearninghardware}, as well as engineering investments in 
+        training infrastructure \citep{yoo2022scalable,lepikhin2020gshard}, mean that over time much larger models will be 
+        trained using the same number of devices. FLOP is also a metric which could potentially be inferred by cloud providers. 
+        Given most machine learning workloads are run by a few key cloud providers, this may make administering such a measure 
+        effectively easier \citep{heim2024governing}.  </p>
+
+    <p> A key conundrum posed by FLOP thresholds is that policymakers are using FLOP as a proxy for risk, but 
+        FLOP doesn’t say anything about end performance of a model --- only about the number of operations applied to the data. 
+        For example, if you compare two models trained for the same number of FLOP but one has had safety alignment during 
+        post-training \citep{aakanksha2024multilingualalignmentprismaligning,bai2022constitutional} and the other has 
+        none – these two models will still be accorded the same level of risk according to number of FLOP but one will present 
+        a far lower risk to society because of safety alignment. </p>
+
+    <p> Another key hurdle governance which adopts compute threshold will have to overcome is the lack of clear guidance 
+        in all the policy to-date about how FLOP will actually be measured in practice. This ambiguity risks FLOP as a 
+        metric being irrelevant or at the very least easy to manipulate. Developing principled standards for measuring any 
+        metric of interest is essential for ensuring that safety measures are applied in a proportionate and appropriate way. 
+        In the followings Section, we specify some of the key ways in which it is easy to manipulate FLOP if it is left 
+        underspecified as a metric.  </p>
+</div>
+
+<div class="descriptions_">
+    <h4> Challenges of using FLOP as a metric </h4>
+
+    <p> <b>Training FLOP doesn't account for post-training leaps in performance</b> Applying scrutiny and regulation based 
+        upon training FLOP ignores that a lot of compute can be spent outside of training to improve performance of a model. 
+        This can be grouped under <q>inference-time compute</q> and can result in large performance gains that dramatically 
+        increase the risk profile of a model.  The limited work to-date which has evaluated a subset 
+        of <q>inference-time compute</q> improvements estimates these can impart gains between 5x and 20x of base level
+        post-training performance \citep{davidson2023ai}.<q>inference-time compute</q> includes best-of-n sampling 
+        techniques \citep{geminiteam2024gemini}, chain-of-thought reasoning \citep{wei2023chainofthought,hsieh2023distilling,wang2023selfconsistency} 
+        and model distillation using synthetic data  \citep{aryabumi2024aya,shimabucoro2024llmseellmdo,ustun2024aya, geminiteam2024gemini}. 
+        All these techniques require more compute at test-time because of the need to perform more forward passes of the 
+        model to generate additional samples. However, these are not reflected in training time costs and indeed 
+        can often <i>reduce</i> the compute needed during training. For example, smaller, more performant models are often 
+        trained on smaller amounts of synthetic data from a highly performant teacher \citep{epoch2023tradingoffcomputeintrainingandinference,huang2022large}. 
+        These improvements dramatically improve performance but are currently completely ignored by compute thresholds 
+        since they don't contribute to <i>training</i> FLOP. </p>
+
+    <p> Increasing the context-length \citep{xiong2023effective} and retrieval augmented 
+        systems \citep{lee2024longcontext,pozzobon2023goodtriever,NEURIPS2020_6b493230} are additional examples of 
+        introducing additional computational overhead at test-time by increasing the number of tokens to process. 
+        Retrieval augmented models (RAG) have become a mainstay of state-of-art models yet are often introduced after training. 
+        Most RAG systems are critical for keeping models up-to-date with knowledge yet contribute minimal or no FLOP. 
+        Retrieval augmented models are particularly good at supplementing models with search capabilities or external 
+        knowledge, which can enhances risks which depend on up-to-date knowledge such as biorisk and cybersecurity threats. </p>
+
+    <p> Additionally increasing the context length often requires minimal FLOP but can dramatically increase performance 
+        of a model. Entire books can be passed in at test time dramatically improving model performance on specialized 
+        tasks (Gemini has 2M context window) \citep{xiong2023effective}. This can make the number of FLOP irrelevant if 
+        sensitive biological data can be passed at inference time in a long-context window. </p>
+
+    <p> <b>Difficulty Tracking FLOP across model lifecycle.</b> Increasingly, training a model falls into distinct stages 
+        that all confer different properties. For example, unsupervised pre-training dominates compute costs because the 
+        volume of data is typically in the trillions of tokens \citep{epoch2023trendsinthedollartrainingcostofmachinelearningsystems,heim2023palm}. 
+        Following this, there is instruction finetuning, which confers the model the ability to follow 
+        instructions \citep{ayadata2024} and then preference training \citep{aakanksha2024multilingualalignmentprismaligning,ahmadian2024basics,bai2022constitutional,ouyang2022LLMRLHF,lee2023rlaif,tunstall2023zephyr,khalifa2021distributional,rafailov2023DPO,azar2023IPO}, 
+        which aligns model performance with human values. Between each of these steps models are often released 
+        publicly \citep{ustun2024aya,touvron2023llama,aryabumi2024aya}, meaning that developers can take a model from a 
+        different developer and continue optimizing. The models with the most downloads on platforms like HuggingFace are 
+        base models which are most conducive for continued pre-training. As sharing of models at different stages of the 
+        life-cycle becomes more common, so will difficulties in tallying FLOP across the entire model life-cycle. 
+        Furthermore, it may simply be infeasible to trace federated, decentralized training of models where hardware often 
+        belongs to many different participants and training is conducted in a privacy-preserving manner \citep{donyehiya2023cold,borzunov2023petals,yuan2023decentralizedtrainingfoundationmodels,qin2024federatedfullparametertuningbillionsized}. </p>
+
+    <p> <b>How to handle Mixture of Experts (MoEs) and classic ensembling?</b> 
+        MoEs \citep{zadouri2023pushing,shazeer2018meshtensorflow,riquelme2021scaling,du2022glam,fedus2022switch,tan2024scattered} 
+        are examples of adaptive compute -- where examples are routed to different parts of a model. This type of architecture 
+        can often provide powerful efficiency gains, as despite a much larger overall architecture, only a subset of weights 
+        are activated for a given example. Current policy frameworks do clearly not specify how to handle Mixture of 
+        Experts (MoEs), which constitute some of the most highly performant systems currently deployed, such as 
+        Mixtral \citep{jiang2024mixtral} and the Gemini family of models \citep{geminiteam2024gemini}. However, this raises 
+        important questions – should the compute for each expert be counted towards total FLOP, or only the FLOP used to train 
+        the subset of experts that are active at inference time? Given final performance depends on all experts in an 
+        MoE, a recommendation should be to include all FLOP in the final consideration, but this is currently under-specified. 
+        It also raises the question of how to treat new \emph{hybrid techniques} which train several specialized experts and then 
+        both average parameters and utilize routing \citep{sukhbaatar2024branchtrainmix}. </p>
+
+    <p>Classical <i>simple ensembling techniques</i> dominate production systems in the real 
+        world \citep{ko2023fairensemble,li2024agents} and have been shown to heavily outperform a single model. 
+        Unlike MoEs which are jointly optimized or trained using a router, classic ensembles are often only combined at 
+        inference time using simple averaging of weights. Given the ensemble is never trained together, it is unclear whether 
+        FLOP should reflect the compute of the single final model or the sum of all the training compute across models that
+         were averaged. If it only reflects the FLOP of the final model, this may underestimate risk given ensembling is known 
+         to improve performance. </p>
+
+    <p> <b>FLOP only accounts for a single model, but does not capture risk of the overall system.</b>  
+        The emphasis on compute thresholds as an indicator of risk also implies that risk is the property of a single model 
+        rather than the system in which it is deployed. In the real-world, impact and risk are rarely attributable to a 
+        single model but are a facet of the entire system a model sits in and the way it interacts with its 
+        environment \citep{compound-ai-blog,NIPS2015_86df7dcf,jatho2023concretesafetymlproblems,raji2020closingaiaccountabilitygap}. 
+        Many real-world production systems are made up of cascading models where the final output is produced as a results of 
+        inputs being processed by multiple algorithms in sequence \citep{paleyes2022,FrontierModelForum,NIPS2015_86df7dcf,shankar2022operationalizing}. 
+        There has yet to be guidance on whether the FLOP threshold is specific to a single model or whether all models that 
+        constitute an end-to-end system contribute to the final tally. This has significant implications for model 
+        providers – a cascade system is often made up of models which are not individually very powerful or risky – yet the 
+        overall system may exceed the FLOP threshold.  </p>
+
+    <p> There is also no specification as to how to treat model agents which may interact with both each other and/or use tools. 
+        End performance of the agents is undoubtedly due to the interactions with other agents and access to 
+        tools \citep{li2024agents}, yet is unlikely to be considered a single model. It has already been shown that models 
+        which are enabled with tool use, or can interact with a wider environment outperform a single model on its 
+        own \citep{wang2023voyageropenendedembodiedagent,anwar2024foundationalchallengesassuringalignment,mialon2023augmentedlanguagemodelssurvey}. 
+        These are far from edge cases; the reality is that most technology deployed in the wild is rarely just an algorithm is 
+        isolation. Typically, interdependent models feed into a user experience and interact with a set of choices about design and 
+        delivery that impact the overall level of risk.  </p>
+
+    <p> <b>FLOP varies dramatically for different modalities.</b> In Figure \ref{fig:different_modalities}, we plot the 
+        FLOP requirements over time of models grouped according to modality and downstream use 
+        case (model FLOP data from \citet{epoch2023pcdtrends}). It is easy to observe that the compute requirements have not 
+        increased at the same rate across modalities. For example, code models typically require less 
+        compute \citep{lin2024scaling}, as do biological models \citep{epoch2024biologicalsequencemodelsinthecontextoftheaidirectives}.   
+        Multilingual models \citep{ustun2024aya,aryabumi2024aya} tend to require more compute for each additional 
+        language covered. This is often referred to as the \textit{curse of multilinguality} \citep{ustun2024aya,arivazhagan2019massively,conneau2019unsupervised,pfeiffer2022lifting}, 
+        where capacity is split between more languages such that performance on any given language suffers relative to a 
+        monolingual (single language) model of the same size. These differing compute needs mean that a single threshold may 
+        penalize some types of models and reward others. For example, thresholds may penalize multilingual models that attempt 
+        to serve many languages and improve access to technology \citep{ustun2024aya,aryabumi2024aya}.</p>
+
+    <p> One way to address differences in modalities is to maintain different compute thresholds for each modality. 
+        While at first glance this is an attractive solution, it also imposes more technical overhead on governments who 
+        must correctly set a hard-coded benchmark for each modality. For example, it is interesting to note that the 
+        US Executive Order already has at least one modality-specific caveat to the compute thresholds by carving out a 
+        separate compute threshold for biological models. It is set lower for models trained for biological sequence data 
+        at $10^{23}$. However, since the threshold was set, models like xTrimoPGLM \citep{chen2024xtrimopglm} already exceed 
+        the biological threshold set at $1e23$ operations by a factor of 6x \citep{epoch2024biologicalsequencemodelsinthecontextoftheaidirectives}. 
+        Many models \citep{lin2023,elnaggar2020,Dalla-Torre2023.01.11.523679} are currently within a factor of 10x the 
+        Executive Order’s reporting threshold \citep{epoch2024biologicalsequencemodelsinthecontextoftheaidirectives}. 
+        These models do not appear to present a decidedly different risk profile from previous generations, so if the goal 
+        of the thresholds is to be an inflection point for amplified risk it is unclear if it has been set successfully. </p>
+
+    <p> Specifying separate thresholds for different modalities also risks inviting gamification. For example, to 
+        avoid a lower threshold for scrutiny for biological models one loophole is to preserve biology specific training 
+        data at less than 50\%. According to current guidance the model would no-longer qualify as a ``biological'' model and 
+        would only be subject to the higher general purpose compute thresholds. Galactica-120B \citep{taylor2022galactica} and 
+        Llama-molinst-protein-7b \citep{fang2024domainagnostic} are both examples of models with capabilities for biological 
+        sequence modeling without primarily being trained on biological sequence data. Despite both presenting biological 
+        capabilities, neither is likely to be considered  ``biological'' under the current Executive Order requirements \citep{epoch2024biologicalsequencemodelsinthecontextoftheaidirectives}. 
+        This highlights the fundamental tension of relying on compute alone -- since it is not anchored to the risk metric that is 
+        of primary concern, it may be possible to sidestep in many creative ways while still presenting high-risk capabilities.</p>
+
+    <p> In Appendix \ref{sect:technical_details_FLOP}, we also present some more technical aspects of the difficulty of 
+        measuring FLOP in practice, such as the difference between theoretical and hardware FLOP, and how to handle difference 
+        in quantization. Developing principled standards for measuring FLOP is essential for ensuring that safety measures are 
+        applied in a proportionate and appropriate way. </p>
+
+</div>
+
+<div class="descriptions_">  
+<h3>We are not very good at predicting the relationship between compute and risk.</h3>
+</div>
+<div class="description_">        
+      <p> The choice of where compute thresholds are set will have far-ranging implications – too low and too many models will be selected for additional auditing and benchmarking each year. In contrast, if it is set too high, not enough models will be audited for risk, and the threshold risks become decorative rather than a meaningful indicator of risk. None of the policies to date have provided justification about where they have set their thresholds, or why it excludes almost all models deployed in the wild today. In Section \ref{sect:tradeoff_compute_performance}, we grappled with the changing overall relationship between compute and performance. However, scientific justification for a threshold requires predicting how downstream risk scales with additional compute. Indeed, ideally the choice of hard coded threshold reflects scientific consensus as to when particular risk factors are expected to emerge due to scale. Hence, it is worth considering our success to date in estimating how different model properties change with scale.  </p>
+      <p> Warren Buffet once said <i><q>Don’t ask the barber if you need a haircut.</q></i> In the same vein, don’t ask a computer scientist or economist whether you can predict the future. The temptation to say yes often overrides a necessary humility about what can and cannot be predicted accurately. One such area where hubris has overridden common sense is attempts to predict the relationship between scale and performance in the form of \textit{scaling laws} \citep{kaplan2020scaling,hernandez2021scaling,Dhariwal2021DataAP} which either try and predict how a model's pre-training loss scales \citep{bowman2023things} or how downstream properties emerge with scale. It is the latter task which is urgently needed by policymakers in order to anticipate the emergence of unsafe capabilities and inform restrictions (such as compute thresholds) at inflection points where risk increases with scale \citep{anthropic_responsible_scaling,openai_global_affairs, kaminski_regulating_2023}.  </p>
+      <p> One of the biggest limitations of scaling laws is that they have only been shown to hold when predicting a model’s pre-training test loss \citep{bowman2023things}, which measures the model’s ability to correctly predict how an incomplete piece of text will be continued. Indeed, when actual performance on downstream tasks is used, the results are often murky or inconsistent \citep{Ganguli_2022,schaeffer2023emergent,anwar2024foundational,Ganguli_2022,schaeffer2024predictingdownstreamcapabilitiesfrontier,hu2024predictingemergentabilitiesinfinite}. Indeed, the term \textit{emerging properties} is often used to describe this discrepancy \citep{Wei2022,srivastava2023imitation}: a property that appears “suddenly” as the complexity of the system increases and cannot be predicted. Emergent properties imply that scaling laws don't hold when you try to predict downstream performance instead of predicting test loss for the next word token. </p>      
+      <p> Even when limited to predicting test loss, there have been issues with replicability of scaling results under slightly different assumptions about the distribution \citep{besiroglu2024chinchilla,anwar2024foundationalchallengesassuringalignment}. Research has also increasingly found that many downstream capabilities display irregular scaling curves \citep{srivastava2023imitation} or non power-law scaling \citep{caballero2023broken}. For complex systems that require projecting into the future, small errors end up accumulating due to time step dependencies being modelled. This makes accurate predictions of when risks will emerge inherently hard, which is compounded by the small samples sizes often available for analysis. each data point is a model, and computation cost means scaling ``laws'' are frequently based upon analysis of less than 100 data points \citep{ruan2024observationalscalinglawspredictability}). This means many reported power law relationships can lack statistical support and power \citep{powerlawtruths}.</p>
+      <p> One immediate recommendation is that the accuracy of scaling laws and predictions of emerging risk can be greatly improved by more guidance from policymakers about what range is of interest and specifying the risks that policymakers are concerned about  \citep{powerlawtruths}. For example, there is a big difference between using scaling laws to optimize for the correct amount of training data in your next large-scale run versus attempting to extrapolate trends several orders of magnitude out. Typically, policy use cases demand high precision over a longer time horizon, which is exactly the type of extrapolation we are currently worst at. Specifying which risks are of interest will also benefit precision; scaling laws tend to have high variance in precision between tasks. For example, code-generation has shown fairly predictable power law scaling across 10 orders of magnitude of compute \citep{hu2024predictingemergentabilitiesinfinite,anwar2024foundational}. However, other capabilities have been far shown to scale far more erratically \citep{srivastava2023imitation,caballero2023broken}. Perhaps as important, policymakers should be aware that accurately predicting the impact of scaling is currently far from feasible. Hence, there is currently limited scientific support for using exact thresholds of compute alone to triage different risk levels.</p>
+</div>
+
+<script>
+
+filterSelection("atypical") // Execute the function and show all columns
+function filterSelection(c) {
+  var x, y, i;
+  x = document.getElementsByClassName("column_portfolio_");
+  y = document.getElementsByClassName("column_header_");
+  // Add the "show" class (display:block) to the filtered elements,
+  // and remove the "show" class from the elements that are not selected
+
+  for (i = 0; i < x.length; i++) {
+    RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+  }
+  for (i = 0; i < y.length; i++) {
+    RemoveClass(y[i], "show");
+    if (y[i].className.indexOf(c) > -1) AddClass(y[i], "show");
+  }
+}
+  
+filterSelection_("pie") // Execute the function and show all columns
+function filterSelection_(c) {
+  var x, y, z, i;
+  x = document.getElementsByClassName("column_portfolio");
+  y = document.getElementsByClassName("column_header");
+  z = document.getElementsByClassName("column_two_fig");
+  // Add the "show" class (display:block) to the filtered elements,
+  // and remove the "show" class from the elements that are not selected
+
+  for (i = 0; i < x.length; i++) {
+    RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+  }
+  for (i = 0; i < y.length; i++) {
+    RemoveClass(y[i], "show");
+    if (y[i].className.indexOf(c) > -1) AddClass(y[i], "show");
+  }
+  
+  for (i = 0; i < z.length; i++) {
+    RemoveClass(z[i], "show");
+    if (z[i].className.indexOf(c) > -1) AddClass(z[i], "show");
+  }
+}
+  
+filterSelectionfinal("thirty") // Execute the function and show all columns
+function filterSelectionfinal(c) {
+  var x, y, i;
+  x = document.getElementsByClassName("column_portfoliofinal");
+  y = document.getElementsByClassName("column_headerfinal");
+  // Add the "show" class (display:block) to the filtered elements,
+  // and remove the "show" class from the elements that are not selected
+
+  for (i = 0; i < x.length; i++) {
+    RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+  }
+  for (i = 0; i < y.length; i++) {
+    RemoveClass(y[i], "show");
+    if (y[i].className.indexOf(c) > -1) AddClass(y[i], "show");
+  }
+ 
+}
+  
+filterSelectionfinalfinal("frequently") // Execute the function and show all columns
+function filterSelectionfinalfinal(c) {
+  var x, y, i;
+  x = document.getElementsByClassName("column_portfoliofinalfinal");
+  y = document.getElementsByClassName("column_headerfinalfinal");
+  // Add the "show" class (display:block) to the filtered elements,
+  // and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+  }
+  for (i = 0; i < y.length; i++) {
+    RemoveClass(y[i], "show");
+    if (y[i].className.indexOf(c) > -1) AddClass(y[i], "show");
+  }
+ 
+}
+  
+
+// Show filtered elements
+function AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer1 = document.getElementById("myBtnContainer");
+var btns1 = btnContainer1.getElementsByClassName("btn");
+for (var i = 0; i < btns1.length; i++) {
+  btns1[i].addEventListener("click", function(){
+    var current1 = document.getElementsByClassName("active_1");
+    current1[0].className = current1[0].className.replace(" active_1", "");
+    this.className += " active_1";
+  });
+}
+  
+// Add active class to the current button (highlight it)
+var btnContainer2 = document.getElementById("myBtnContainer_2");
+var btns2 = btnContainer2.getElementsByClassName("btn");
+for (var i = 0; i < btns2.length; i++) {
+  btns2[i].addEventListener("click", function(){
+    var current2 = document.getElementsByClassName("active_2");
+    current2[0].className = current2[0].className.replace(" active_2", "");
+    this.className += " active_2";
+  });
+}
+  
+// Add active class to the current button (highlight it)
+var btnContainer3 = document.getElementById("myBtnContainer_3");
+var btns3 = btnContainer3.getElementsByClassName("btn");
+for (var i = 0; i < btns3.length; i++) {
+  btns3[i].addEventListener("click", function(){
+    var current3 = document.getElementsByClassName("active_3");
+    current3[0].className = current3[0].className.replace(" active_3", "");
+    this.className += " active_3";
+  });
+}
+  
+// Add active class to the current button (highlight it)
+var btnContainer4 = document.getElementById("myBtnContainer_4");
+var btns4 = btnContainer4.getElementsByClassName("btn");
+for (var i = 0; i < btns4.length; i++) {
+  btns4[i].addEventListener("click", function(){
+    var current4 = document.getElementsByClassName("active_4");
+    current4[0].className = current4[0].className.replace(" active_4", "");
+    this.className += " active_4";
+  });
+}
+</script> 
+  </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+<script src="template.v1.js"></script>
+<dt-appendix>
+<div class="description_">  
+<h3>Acknowledgments</h3>
+  
+<p> A special thank you is due to ...
+   This article was in part prepared using the <a href="https://pair-code.github.io/saliency/">Google AI Pair</a> template and style guide.
+   The citation management for this article uses the <a href="https://github.com/distillpub/template">template v1</a> of the Distill style script. </p>
+ 
+<p>We thank the ... </p>
+  <p> We thank the .... </p>
+  
+<h3>Citation</h3>
+<pre class="citation long">@article{hooker2024compute,
+    title={On the Limitations of Compute Thresholds as a Governance Strategy},
+    author={Sara Hooker},
+    year={2019},
+    <!-- url={https://arxiv.org/abs/1911.05248}, -->
+    <!-- eprint={1911.05248}, -->
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+
+</pre>
+</div>
+</dt-appendix>
+	
+<div class="description_">  
+<h3>Bibliography</h3>
+</div>
+<script type="text/bibliography">
+
+</script> 
+
+<script language="javascript" type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
