@@ -491,7 +491,7 @@ figcaption .strong_, {
             
            <p> This would ignite a rush for compute which has led to a bigger-is-better race in the number of model parameters 
             over the last decade <dt-cite key="2016Canziani,strubell2019energy,rae2021scaling,raffel2020exploring,bommasani2021opportunities,bender_gebru_2021"></dt-cite>. 
-            The computer scientist Ken Thompson famously said \textit{``When in doubt, use brute force.''}  
+            The computer scientist Ken Thompson famously said <q>When in doubt, use brute force.</q>  
             This was formalized as the “bitter lesson” by Rich Sutton who posited that computer science history tells us that 
             throwing more compute at a problem has consistently outperformed all attempts to leverage human knowledge of a domain 
             to teach a model <dt-cite key="SilverBittrLesson"></dt-cite>. In a punch to the ego of every computer scientist out there, what Sutton is 
@@ -500,8 +500,8 @@ figcaption .strong_, {
 	   
              <p> <b> Sutton right?</b> Certainly, he is correct that scaling has been a widely favored formula because 
                 it has provided persuasive gains in overall performance – size is the most de-risked tool we have to unlock 
-                new gains. As the computer scientist Michael Jordan quipped \textit{``Today we can’t think without holding a 
-                    piece of metal.''} Increasing compute also conveniently fits into the cadence of quarterly industry 
+                new gains. As the computer scientist Michael Jordan quipped <q>Today we can’t think without holding a 
+                    piece of metal.</q> Increasing compute also conveniently fits into the cadence of quarterly industry 
                     planning, it is less risky to propose training a bigger model than it is to propose an alternative 
                     optimization technique. However, relying on compute alone misses a critical shift that is underway in the 
                     relationship between compute and performance. It is not always the case that bigger models result in better 
@@ -509,7 +509,7 @@ figcaption .strong_, {
                     easily outperformed by far smaller open weights models such as Llama-3 8B <dt-cite key="llama3modelcard"></dt-cite>, 
                     Command R 35B <dt-cite key="cohere_c4ai_command_r_plus"></dt-cite>, Gemma 27B <dt-cite key="gemma_2024"></dt-cite>. It also doesn't explain why 
                     Aya 23 8B <dt-cite key="aryabumi2024aya"></dt-cite> easily outperforms BLOOM 176 B <dt-cite key="workshop2023bloom176bparameteropenaccessmultilingual"></dt-cite> 
-                    despite having only 4.5\% of the parameters.   </p>
+                    despite having only 4.5% of the parameters.   </p>
 
              <!-- Add Figure 3 from Paper here -->
 
@@ -522,15 +522,15 @@ figcaption .strong_, {
     
 		 <p> These are not isolated examples, but rather indicative of an overall trend where there is no guarantee 
             larger models consistently outperform smaller models. Figure \ref{fig:above_13_b} plots the scores of models 
-            submitted to the \href{https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard}{Open LLM Leaderboard} 
-            over the last two years. Here, we plot \textit{large models} with more than 13 billion parameters whose leaderboard 
-            score is less than the top performing \textit{small model} with less than 13 billion parameters. 
+            submitted to the <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Open LLM Leaderboard</a>
+            over the last two years. Here, we plot <i>large models</i> with more than 13 billion parameters whose leaderboard 
+            score is less than the top performing <i>small model</i> with less than 13 billion parameters. 
             We observe that over time, more and more large models have been submitted that are outperformed by the best 
             small model daily submission. To understand why this is the case, we must understand what key variables have been 
             driving gains in performance over the last decade. In an era where there are diminishing returns for the amount 
             of compute available <dt-cite key="lohn2022ai,2020Thompson"></dt-cite>, optimization and architecture breakthroughs define the rate 
-            of return for a given unit of compute. \textbf{It is this rate of return which is most critical to the pace of
-                progress and to the level of risk incurred by additional compute}.</p>
+            of return for a given unit of compute. <b>It is this rate of return which is most critical to the pace of
+                progress and to the level of risk incurred by additional compute</b>.</p>
 
         </div>
 
@@ -566,8 +566,8 @@ figcaption .strong_, {
                 All these techniques compensate for the need for weights or expensive prolonged training <dt-cite key="ho2024algorithmicprogresslanguagemodels"></dt-cite>. 
                 All things equal, these have been shown to dramatically improve model performance relative to a model trained 
                 without these optimization tricks given the same level of compute <dt-cite key="davidson2023ai,hernandez2020,erdil2023algorithmic,METR_undated,liu2024sophia"></dt-cite>. 
-                In Figure \ref{fig:13b_models}, we plot the best daily 13B or smaller model submitted to the \href{https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard}{Open LLM Leaderboard} over time. 
-                In a mere span of 2 years, the best-performing daily scores from small model went from an average of 38.59\% across to an average of 77.15\% across 2024 submissions.
+                In Figure \ref{fig:13b_models}, we plot the best daily 13B or smaller model submitted to the <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Open LLM Leaderboard</a> over time. 
+                In a mere span of 2 years, the best-performing daily scores from small model went from an average of 38.59% across to an average of 77.15% across 2024 submissions.
                 The takeaway is clear -- smaller models with the same amount of capacity are becoming more and more performant. </p>
 
             <p> <b>Architecture plays a significant role in determining scalability</b> The introduction of a new architecture
@@ -747,7 +747,7 @@ figcaption .strong_, {
         increased at the same rate across modalities. For example, code models typically require less 
         compute <dt-cite key="lin2024scaling"></dt-cite>, as do biological models <dt-cite key="epoch2024biologicalsequencemodelsinthecontextoftheaidirectives"></dt-cite>.   
         Multilingual models <dt-cite key="ustun2024aya,aryabumi2024aya"></dt-cite> tend to require more compute for each additional 
-        language covered. This is often referred to as the \textit{curse of multilinguality} <dt-cite key="ustun2024aya,arivazhagan2019massively,conneau2019unsupervised,pfeiffer2022lifting"></dt-cite>, 
+        language covered. This is often referred to as the <i>curse of multilinguality</i> <dt-cite key="ustun2024aya,arivazhagan2019massively,conneau2019unsupervised,pfeiffer2022lifting"></dt-cite>, 
         where capacity is split between more languages such that performance on any given language suffers relative to a 
         monolingual (single language) model of the same size. These differing compute needs mean that a single threshold may 
         penalize some types of models and reward others. For example, thresholds may penalize multilingual models that attempt 
@@ -767,11 +767,11 @@ figcaption .strong_, {
 
     <p> Specifying separate thresholds for different modalities also risks inviting gamification. For example, to 
         avoid a lower threshold for scrutiny for biological models one loophole is to preserve biology specific training 
-        data at less than 50\%. According to current guidance the model would no-longer qualify as a ``biological'' model and 
+        data at less than 50%. According to current guidance the model would no-longer qualify as a <q>biological</q> model and 
         would only be subject to the higher general purpose compute thresholds. Galactica-120B <dt-cite key="taylor2022galactica"></dt-cite> and 
         Llama-molinst-protein-7b <dt-cite key="fang2024domainagnostic"></dt-cite> are both examples of models with capabilities for biological 
         sequence modeling without primarily being trained on biological sequence data. Despite both presenting biological 
-        capabilities, neither is likely to be considered  ``biological'' under the current Executive Order requirements <dt-cite key="epoch2024biologicalsequencemodelsinthecontextoftheaidirectives"></dt-cite>. 
+        capabilities, neither is likely to be considered  <q>biological</q> under the current Executive Order requirements <dt-cite key="epoch2024biologicalsequencemodelsinthecontextoftheaidirectives"></dt-cite>. 
         This highlights the fundamental tension of relying on compute alone -- since it is not anchored to the risk metric that is 
         of primary concern, it may be possible to sidestep in many creative ways while still presenting high-risk capabilities.</p>
 
@@ -803,7 +803,7 @@ figcaption .strong_, {
         vein, don’t ask a computer scientist or economist whether you can predict the future. The temptation to 
         say yes often overrides a necessary humility about what can and cannot be predicted accurately. One such 
         area where hubris has overridden common sense is attempts to predict the relationship between scale and 
-        performance in the form of \textit{scaling laws} <dt-cite key="kaplan2020scaling,hernandez2021scaling,Dhariwal2021DataAP"></dt-cite>
+        performance in the form of <i>scaling laws</i> <dt-cite key="kaplan2020scaling,hernandez2021scaling,Dhariwal2021DataAP"></dt-cite>
         which either try and predict how a model's pre-training loss scales <dt-cite key="bowman2023things"></dt-cite> 
         or how downstream properties emerge with scale. It is the latter task which is urgently needed by policymakers 
         in order to anticipate the emergence of unsafe capabilities and inform restrictions (such as compute thresholds) 
@@ -813,7 +813,7 @@ figcaption .strong_, {
         a model’s pre-training test loss <dt-cite key="bowman2023things"></dt-cite>, which measures the model’s 
         ability to correctly predict how an incomplete piece of text will be continued. Indeed, when actual 
         performance on downstream tasks is used, the results are often murky or inconsistent <dt-cite key="Ganguli_2022,schaeffer2023emergent,anwar2024foundational,Ganguli_2022,schaeffer2024predictingdownstreamcapabilitiesfrontier,hu2024predictingemergentabilitiesinfinite"></dt-cite>. 
-        Indeed, the term \textit{emerging properties} is often used to describe this 
+        Indeed, the term <i>emerging properties</i> is often used to describe this 
         discrepancy <dt-cite key="Wei2022,srivastava2023imitation"></dt-cite>: a property that appears “suddenly” as the 
         complexity of the system increases and cannot be predicted. Emergent properties imply that scaling laws 
         don't hold when you try to predict downstream performance instead of predicting test loss for the next 
@@ -2321,7 +2321,7 @@ publisher={JSTOR}
   url = "https://aclanthology.org/2020.acl-main.747",
   doi = "10.18653/v1/2020.acl-main.747",
   pages = "8440--8451",
-  abstract = "This paper shows that pretraining multilingual language models at scale leads to significant performance gains for a wide range of cross-lingual transfer tasks. We train a Transformer-based masked language model on one hundred languages, using more than two terabytes of filtered CommonCrawl data. Our model, dubbed XLM-R, significantly outperforms multilingual BERT (mBERT) on a variety of cross-lingual benchmarks, including +14.6{\%} average accuracy on XNLI, +13{\%} average F1 score on MLQA, and +2.4{\%} F1 score on NER. XLM-R performs particularly well on low-resource languages, improving 15.7{\%} in XNLI accuracy for Swahili and 11.4{\%} for Urdu over previous XLM models. We also present a detailed empirical analysis of the key factors that are required to achieve these gains, including the trade-offs between (1) positive transfer and capacity dilution and (2) the performance of high and low resource languages at scale. Finally, we show, for the first time, the possibility of multilingual modeling without sacrificing per-language performance; XLM-R is very competitive with strong monolingual models on the GLUE and XNLI benchmarks. We will make our code and models publicly available.",
+  abstract = "This paper shows that pretraining multilingual language models at scale leads to significant performance gains for a wide range of cross-lingual transfer tasks. We train a Transformer-based masked language model on one hundred languages, using more than two terabytes of filtered CommonCrawl data. Our model, dubbed XLM-R, significantly outperforms multilingual BERT (mBERT) on a variety of cross-lingual benchmarks, including +14.6{%} average accuracy on XNLI, +13{%} average F1 score on MLQA, and +2.4{%} F1 score on NER. XLM-R performs particularly well on low-resource languages, improving 15.7{%} in XNLI accuracy for Swahili and 11.4{%} for Urdu over previous XLM models. We also present a detailed empirical analysis of the key factors that are required to achieve these gains, including the trade-offs between (1) positive transfer and capacity dilution and (2) the performance of high and low resource languages at scale. Finally, we show, for the first time, the possibility of multilingual modeling without sacrificing per-language performance; XLM-R is very competitive with strong monolingual models on the GLUE and XNLI benchmarks. We will make our code and models publicly available.",
 }
 
 @inproceedings{eiselen-2016-government,
@@ -7797,7 +7797,7 @@ url={https://openreview.net/forum?id=PAgpyQ5rGS}
   pages = {50-72},
   year = {2022},
   month = {01},
-  abstract = "{With the success of large-scale pre-training and multilingual modeling in Natural Language Processing (NLP), recent years have seen a proliferation of large, Web-mined text datasets covering hundreds of languages. We manually audit the quality of 205 language-specific corpora released with five major public datasets (CCAligned, ParaCrawl, WikiMatrix, OSCAR, mC4). Lower-resource corpora have systematic issues: At least 15 corpora have no usable text, and a significant fraction contains less than 50\\% sentences of acceptable quality. In addition, many are mislabeled or use nonstandard/ambiguous language codes. We demonstrate that these issues are easy to detect even for non-proficient speakers, and supplement the human audit with automatic analyses. Finally, we recommend techniques to evaluate and improve multilingual corpora and discuss potential risks that come with low-quality data releases.}",
+  abstract = "{With the success of large-scale pre-training and multilingual modeling in Natural Language Processing (NLP), recent years have seen a proliferation of large, Web-mined text datasets covering hundreds of languages. We manually audit the quality of 205 language-specific corpora released with five major public datasets (CCAligned, ParaCrawl, WikiMatrix, OSCAR, mC4). Lower-resource corpora have systematic issues: At least 15 corpora have no usable text, and a significant fraction contains less than 50% sentences of acceptable quality. In addition, many are mislabeled or use nonstandard/ambiguous language codes. We demonstrate that these issues are easy to detect even for non-proficient speakers, and supplement the human audit with automatic analyses. Finally, we recommend techniques to evaluate and improve multilingual corpora and discuss potential risks that come with low-quality data releases.}",
   issn = {2307-387X},
   doi = {10.1162/tacl_a_00447},
   url = {https://doi.org/10.1162/tacl\_a\_00447},
@@ -7837,7 +7837,7 @@ url={https://openreview.net/forum?id=PAgpyQ5rGS}
   url = "https://aclanthology.org/2022.acl-long.577",
   doi = "10.18653/v1/2022.acl-long.577",
   pages = "8424--8445",
-  abstract = "We find that existing language modeling datasets contain many near-duplicate examples and long repetitive substrings.As a result, over 1{\%} of the unprompted output of language models trained on these datasets is copied verbatim from the training data.We develop two tools that allow us to deduplicate training datasets{---}for example removing from C4 a single 61 word English sentence that is repeated over 60,000 times.Deduplication allows us to train models that emit memorized text ten times less frequently and require fewer training steps to achieve the same or better accuracy.We can also reduce train-test overlap, which affects over 4{\%} of the validation set of standard datasets, thus allowing for more accurate evaluation.Code for deduplication is released at https://github.com/google-research/deduplicate-text-datasets.",
+  abstract = "We find that existing language modeling datasets contain many near-duplicate examples and long repetitive substrings.As a result, over 1{%} of the unprompted output of language models trained on these datasets is copied verbatim from the training data.We develop two tools that allow us to deduplicate training datasets{---}for example removing from C4 a single 61 word English sentence that is repeated over 60,000 times.Deduplication allows us to train models that emit memorized text ten times less frequently and require fewer training steps to achieve the same or better accuracy.We can also reduce train-test overlap, which affects over 4{%} of the validation set of standard datasets, thus allowing for more accurate evaluation.Code for deduplication is released at https://github.com/google-research/deduplicate-text-datasets.",
 }
 
 @misc{dodge2021documenting,
@@ -8004,7 +8004,7 @@ month = 	 {18--24 Jul},
 publisher =    {PMLR},
 pdf = 	 {http://proceedings.mlr.press/v139/hubara21a/hubara21a.pdf},
 url = 	 {https://proceedings.mlr.press/v139/hubara21a.html},
-abstract = 	 {Lately, post-training quantization methods have gained considerable attention, as they are simple to use, and require only a small unlabeled calibration set. This small dataset cannot be used to fine-tune the model without significant over-fitting. Instead, these methods only use the calibration set to set the activations’ dynamic ranges. However, such methods always resulted in significant accuracy degradation, when used below 8-bits (except on small datasets). Here we aim to break the 8-bit barrier. To this end, we minimize the quantization errors of each layer or block separately by optimizing its parameters over the calibration set. We empirically demonstrate that this approach is: (1) much less susceptible to over-fitting than the standard fine-tuning approaches, and can be used even on a very small calibration set; and (2) more powerful than previous methods, which only set the activations’ dynamic ranges. We suggest two flavors for our method, parallel and sequential aim for a fixed and flexible bit-width allocation. For the latter, we demonstrate how to optimally allocate the bit-widths for each layer, while constraining accuracy degradation or model compression by proposing a novel integer programming formulation. Finally, we suggest model global statistics tuning, to correct biases introduced during quantization. Together, these methods yield state-of-the-art results for both vision and text models. For instance, on ResNet50, we obtain less than 1% accuracy degradation — with 4-bit weights and activations in all layers, but first and last. The suggested methods are two orders of magnitude faster than the traditional Quantize Aware Training approach used for lower than 8-bit quantization. We open-sourced our code \textit{https://github.com/papers-submission/CalibTIP}.}
+abstract = 	 {Lately, post-training quantization methods have gained considerable attention, as they are simple to use, and require only a small unlabeled calibration set. This small dataset cannot be used to fine-tune the model without significant over-fitting. Instead, these methods only use the calibration set to set the activations’ dynamic ranges. However, such methods always resulted in significant accuracy degradation, when used below 8-bits (except on small datasets). Here we aim to break the 8-bit barrier. To this end, we minimize the quantization errors of each layer or block separately by optimizing its parameters over the calibration set. We empirically demonstrate that this approach is: (1) much less susceptible to over-fitting than the standard fine-tuning approaches, and can be used even on a very small calibration set; and (2) more powerful than previous methods, which only set the activations’ dynamic ranges. We suggest two flavors for our method, parallel and sequential aim for a fixed and flexible bit-width allocation. For the latter, we demonstrate how to optimally allocate the bit-widths for each layer, while constraining accuracy degradation or model compression by proposing a novel integer programming formulation. Finally, we suggest model global statistics tuning, to correct biases introduced during quantization. Together, these methods yield state-of-the-art results for both vision and text models. For instance, on ResNet50, we obtain less than 1% accuracy degradation — with 4-bit weights and activations in all layers, but first and last. The suggested methods are two orders of magnitude faster than the traditional Quantize Aware Training approach used for lower than 8-bit quantization. We open-sourced our code <i>https://github.com/papers-submission/CalibTIP</i>.}
 }
 
 
@@ -8300,7 +8300,7 @@ url = {https://github.com/togethercomputer/RedPajama-Data}
 }
 
 @misc{vicuna2023,
-  title = {Vicuna: An Open-Source Chatbot Impressing GPT-4 with 90\%* ChatGPT Quality},
+  title = {Vicuna: An Open-Source Chatbot Impressing GPT-4 with 90%* ChatGPT Quality},
   url = {https://lmsys.org/blog/2023-03-30-vicuna/},
   author = {Chiang, Wei-Lin and Li, Zhuohan and Lin, Zi and Sheng, Ying and Wu, Zhanghao and Zhang, Hao and Zheng, Lianmin and Zhuang, Siyuan and Zhuang, Yonghao and Gonzalez, Joseph E. and Stoica, Ion and Xing, Eric P.},
   month = {March},
@@ -12562,7 +12562,7 @@ month     = {06--11 Aug},
 publisher = {PMLR},
 pdf       = {http://proceedings.mlr.press/v70/kumar17a/kumar17a.pdf},
 url       = {http://proceedings.mlr.press/v70/kumar17a.html},
-abstract  = {This paper develops a novel tree-based algorithm, called Bonsai, for efficient prediction on IoT devices – such as those based on the Arduino Uno board having an 8 bit ATmega328P microcontroller operating at 16 MHz with no native floating point support, 2 KB RAM and 32 KB read-only flash. Bonsai maintains prediction accuracy while minimizing model size and prediction costs by: (a) developing a tree model which learns a single, shallow, sparse tree with powerful nodes; (b) sparsely projecting all data into a low-dimensional space in which the tree is learnt; and (c) jointly learning all tree and projection parameters. Experimental results on multiple benchmark datasets demonstrate that Bonsai can make predictions in milliseconds even on slow microcontrollers, can fit in KB of memory, has lower battery consumption than all other algorithms while achieving prediction accuracies that can be as much as 30\% higher than state-of-the-art methods for resource-efficient machine learning. Bonsai is also shown to generalize to other resource constrained settings beyond IoT by generating significantly better search results as compared to Bing’s L3 ranker when the model size is restricted to 300 bytes. Bonsai’s code can be downloaded from (http://www.manikvarma.org/code/Bonsai/download.html).}
+abstract  = {This paper develops a novel tree-based algorithm, called Bonsai, for efficient prediction on IoT devices – such as those based on the Arduino Uno board having an 8 bit ATmega328P microcontroller operating at 16 MHz with no native floating point support, 2 KB RAM and 32 KB read-only flash. Bonsai maintains prediction accuracy while minimizing model size and prediction costs by: (a) developing a tree model which learns a single, shallow, sparse tree with powerful nodes; (b) sparsely projecting all data into a low-dimensional space in which the tree is learnt; and (c) jointly learning all tree and projection parameters. Experimental results on multiple benchmark datasets demonstrate that Bonsai can make predictions in milliseconds even on slow microcontrollers, can fit in KB of memory, has lower battery consumption than all other algorithms while achieving prediction accuracies that can be as much as 30% higher than state-of-the-art methods for resource-efficient machine learning. Bonsai is also shown to generalize to other resource constrained settings beyond IoT by generating significantly better search results as compared to Bing’s L3 ranker when the model size is restricted to 300 bytes. Bonsai’s code can be downloaded from (http://www.manikvarma.org/code/Bonsai/download.html).}
 }
 
 @misc{dsouza2021tale,
@@ -12822,7 +12822,7 @@ bibsource = {dblp computer science bibliography, https://dblp.org}
   url = "https://aclanthology.org/2020.repl4nlp-1.18",
   doi = "10.18653/v1/2020.repl4nlp-1.18",
   pages = "143--155",
-  abstract = "Pre-trained universal feature extractors, such as BERT for natural language processing and VGG for computer vision, have become effective methods for improving deep learning models without requiring more labeled data. While effective, feature extractors like BERT may be prohibitively large for some deployment scenarios. We explore weight pruning for BERT and ask: how does compression during pre-training affect transfer learning? We find that pruning affects transfer learning in three broad regimes. Low levels of pruning (30-40{\%}) do not affect pre-training loss or transfer to downstream tasks at all. Medium levels of pruning increase the pre-training loss and prevent useful pre-training information from being transferred to downstream tasks. High levels of pruning additionally prevent models from fitting downstream datasets, leading to further degradation. Finally, we observe that fine-tuning BERT on a specific task does not improve its prunability. We conclude that BERT can be pruned once during pre-training rather than separately for each task without affecting performance.",
+  abstract = "Pre-trained universal feature extractors, such as BERT for natural language processing and VGG for computer vision, have become effective methods for improving deep learning models without requiring more labeled data. While effective, feature extractors like BERT may be prohibitively large for some deployment scenarios. We explore weight pruning for BERT and ask: how does compression during pre-training affect transfer learning? We find that pruning affects transfer learning in three broad regimes. Low levels of pruning (30-40{%}) do not affect pre-training loss or transfer to downstream tasks at all. Medium levels of pruning increase the pre-training loss and prevent useful pre-training information from being transferred to downstream tasks. High levels of pruning additionally prevent models from fitting downstream datasets, leading to further degradation. Finally, we observe that fine-tuning BERT on a specific task does not improve its prunability. We conclude that BERT can be pruned once during pre-training rather than separately for each task without affecting performance.",
 }
 
 @article{l0-regularization,
@@ -16219,7 +16219,7 @@ year = {2016}
   url = "https://aclanthology.org/2021.emnlp-main.58",
   doi = "10.18653/v1/2021.emnlp-main.58",
   pages = "751--762",
-  abstract = "Recent developments in machine translation and multilingual text generation have led researchers to adopt trained metrics such as COMET or BLEURT, which treat evaluation as a regression problem and use representations from multilingual pre-trained models such as XLM-RoBERTa or mBERT. Yet studies on related tasks suggest that these models are most efficient when they are large, which is costly and impractical for evaluation. We investigate the trade-off between multilinguality and model capacity with RemBERT, a state-of-the-art multilingual language model, using data from the WMT Metrics Shared Task. We present a series of experiments which show that model size is indeed a bottleneck for cross-lingual transfer, then demonstrate how distillation can help addressing this bottleneck, by leveraging synthetic data generation and transferring knowledge from one teacher to multiple students trained on related languages. Our method yields up to 10.5{\%} improvement over vanilla fine-tuning and reaches 92.6{\%} of RemBERT{'}s performance using only a third of its parameters.",
+  abstract = "Recent developments in machine translation and multilingual text generation have led researchers to adopt trained metrics such as COMET or BLEURT, which treat evaluation as a regression problem and use representations from multilingual pre-trained models such as XLM-RoBERTa or mBERT. Yet studies on related tasks suggest that these models are most efficient when they are large, which is costly and impractical for evaluation. We investigate the trade-off between multilinguality and model capacity with RemBERT, a state-of-the-art multilingual language model, using data from the WMT Metrics Shared Task. We present a series of experiments which show that model size is indeed a bottleneck for cross-lingual transfer, then demonstrate how distillation can help addressing this bottleneck, by leveraging synthetic data generation and transferring knowledge from one teacher to multiple students trained on related languages. Our method yields up to 10.5{%} improvement over vanilla fine-tuning and reaches 92.6{%} of RemBERT{'}s performance using only a third of its parameters.",
 }
 
 @misc{pozzobon2023goodtriever,
@@ -24643,7 +24643,7 @@ url={https://crfm.stanford.edu/assets/report.pdf}
   adsnote        = {Provided by the SAO/NASA Astrophysics Data System}
 }
 @article{Birodkar2019SemanticRI,
-  title          = {{Semantic Redundancies in Image-Classification Datasets: The 10\% You Don't Need}},
+  title          = {{Semantic Redundancies in Image-Classification Datasets: The 10% You Don't Need}},
   author         = {Vighnesh Birodkar and Hossein Mobahi and Samy Bengio},
   year           = {2019},
   journal        = {ArXiv},
@@ -24941,7 +24941,7 @@ pages={2229-2236},
 month={},
 keywords={},
 doi={10.2105/AJPH.2007.125849},
-abstract={Objectives. We examined the cognitive and behavioral effects of the National Youth Anti-Drug Media Campaign on youths aged 12.5 to 18 years and report core evaluation results. Methods. From September 1999 to June 2004, 3 nationally representative cohorts of US youths aged 9 to 18 years were surveyed at home 4 times. Sample size ranged from 8117 in the first to 5126 in the fourth round (65\% first-round response rate, with 86\%-93\% of still eligible youths interviewed subsequently). Main outcomes were self-reported lifetime, past-year, and past-30-day marijuana use and related cognitions. Results. Most analyses showed no effects from the campaign. At one round, however, more ad exposure predicted less intention to avoid marijuana use (γ= -0.07; 95\% confidence interval [CI]=-0.13, -0.01) and weaker antidrug social norms (γ=-0.05; 95\% CI=-0.08, -0.02) at the subsequent round. Exposure at round 3 predicted marijuana initiation at round 4 (γ=0.11; 95\% CI=0.00, 0.22). Conclusions. Through June 2004, the campaign is unlikely to have had favorable effects on youths and may have had delayed unfavorable effects. The evaluation challenges the usefulness of the campaign.},
+abstract={Objectives. We examined the cognitive and behavioral effects of the National Youth Anti-Drug Media Campaign on youths aged 12.5 to 18 years and report core evaluation results. Methods. From September 1999 to June 2004, 3 nationally representative cohorts of US youths aged 9 to 18 years were surveyed at home 4 times. Sample size ranged from 8117 in the first to 5126 in the fourth round (65% first-round response rate, with 86%-93% of still eligible youths interviewed subsequently). Main outcomes were self-reported lifetime, past-year, and past-30-day marijuana use and related cognitions. Results. Most analyses showed no effects from the campaign. At one round, however, more ad exposure predicted less intention to avoid marijuana use (γ= -0.07; 95% confidence interval [CI]=-0.13, -0.01) and weaker antidrug social norms (γ=-0.05; 95% CI=-0.08, -0.02) at the subsequent round. Exposure at round 3 predicted marijuana initiation at round 4 (γ=0.11; 95% CI=0.00, 0.22). Conclusions. Through June 2004, the campaign is unlikely to have had favorable effects on youths and may have had delayed unfavorable effects. The evaluation challenges the usefulness of the campaign.},
 url={https://ideas.repec.org/a/aph/ajpbhl/10.2105-ajph.2007.125849_2.html}
 }
 
@@ -28269,7 +28269,7 @@ urldate = {2023-07-04}
   url = "https://aclanthology.org/2022.naacl-main.439",
   doi = "10.18653/v1/2022.naacl-main.439",
   pages = "5994--6017",
-  abstract = "We focus on creating agents that act in alignment with socially beneficial norms and values in interactive narratives or text-based games{---}environments wherein an agent perceives and interacts with a world through natural language. Such interactive agents are often trained via reinforcement learning to optimize task performance, even when such rewards may lead to agent behaviors that violate societal norms{---}causing harm either to the agent itself or other entities in the environment. Social value alignment refers to creating agents whose behaviors conform to expected moral and social norms for a given context and group of people{---}in our case, it means agents that behave in a manner that is less harmful and more beneficial for themselves and others. We build on the Jiminy Cricket benchmark (Hendrycks et al. 2021), a set of 25 annotated interactive narratives containing thousands of morally salient scenarios covering everything from theft and bodily harm to altruism. We introduce the GALAD (Game-value ALignment through Action Distillation) agent that uses the social commonsense knowledge present in specially trained language models to contextually restrict its action space to only those actions that are aligned with socially beneficial values. An experimental study shows that the GALAD agent makes decisions efficiently enough to improve state-of-the-art task performance by 4{\%} while reducing the frequency of socially harmful behaviors by 25{\%} compared to strong contemporary value alignment approaches.",
+  abstract = "We focus on creating agents that act in alignment with socially beneficial norms and values in interactive narratives or text-based games{---}environments wherein an agent perceives and interacts with a world through natural language. Such interactive agents are often trained via reinforcement learning to optimize task performance, even when such rewards may lead to agent behaviors that violate societal norms{---}causing harm either to the agent itself or other entities in the environment. Social value alignment refers to creating agents whose behaviors conform to expected moral and social norms for a given context and group of people{---}in our case, it means agents that behave in a manner that is less harmful and more beneficial for themselves and others. We build on the Jiminy Cricket benchmark (Hendrycks et al. 2021), a set of 25 annotated interactive narratives containing thousands of morally salient scenarios covering everything from theft and bodily harm to altruism. We introduce the GALAD (Game-value ALignment through Action Distillation) agent that uses the social commonsense knowledge present in specially trained language models to contextually restrict its action space to only those actions that are aligned with socially beneficial values. An experimental study shows that the GALAD agent makes decisions efficiently enough to improve state-of-the-art task performance by 4{%} while reducing the frequency of socially harmful behaviors by 25{%} compared to strong contemporary value alignment approaches.",
 }
 
 @misc{ranzato2015sequence,
@@ -29220,7 +29220,7 @@ year={2024}
   url = "https://aclanthology.org/2023.findings-emnlp.339",
   doi = "10.18653/v1/2023.findings-emnlp.339",
   pages = "5108--5125",
-  abstract = "Considerable effort has been dedicated to mitigating toxicity, but existing methods often require drastic modifications to model parameters or the use of computationally intensive auxiliary models. Furthermore, previous approaches have often neglected the crucial factor of language{'}s evolving nature over time. In this work, we present a comprehensive perspective on toxicity mitigation that takes into account its changing nature. We introduce Goodtriever, a flexible methodology that matches the current state-of-the-art toxicity mitigation while achieving 43{\%} relative latency reduction during inference and being more computationally efficient. By incorporating a retrieval-based approach at decoding time, Goodtriever enables toxicity-controlled text generation. Our research advocates for an increased focus on adaptable mitigation techniques, which better reflect the data drift models face when deployed in the wild.",
+  abstract = "Considerable effort has been dedicated to mitigating toxicity, but existing methods often require drastic modifications to model parameters or the use of computationally intensive auxiliary models. Furthermore, previous approaches have often neglected the crucial factor of language{'}s evolving nature over time. In this work, we present a comprehensive perspective on toxicity mitigation that takes into account its changing nature. We introduce Goodtriever, a flexible methodology that matches the current state-of-the-art toxicity mitigation while achieving 43{%} relative latency reduction during inference and being more computationally efficient. By incorporating a retrieval-based approach at decoding time, Goodtriever enables toxicity-controlled text generation. Our research advocates for an increased focus on adaptable mitigation techniques, which better reflect the data drift models face when deployed in the wild.",
 }
 
 @misc{buchanan2021truth,
