@@ -62,7 +62,7 @@
       padding: 0;
       height: 100%;
     }
-    .b_ {
+    boldtext {
       color: rgba(0, 0, 0, 0.911);
       font-size: 18px;
       font-weight:bold;
@@ -503,7 +503,7 @@ figcaption .strong_, {
             saying is that symbolic methods that codify human knowledge have not worked as well as letting a model learn patterns 
             for itself coupled with ever-vaster amounts of compute.  </p>
 	   
-             <p> <b_>Is Sutton right?</b_> Certainly, he is correct that scaling has been a widely favored formula because 
+             <p> <boldtext>Is Sutton right?</boldtext> Certainly, he is correct that scaling has been a widely favored formula because 
                 it has provided persuasive gains in overall performance – size is the most de-risked tool we have to unlock 
                 new gains. As the computer scientist Michael Jordan quipped <q>Today we can’t think without holding a 
                     piece of metal.</q> Increasing compute also conveniently fits into the cadence of quarterly industry 
@@ -534,8 +534,8 @@ figcaption .strong_, {
             small model daily submission. To understand why this is the case, we must understand what key variables have been 
             driving gains in performance over the last decade. In an era where there are diminishing returns for the amount 
             of compute available <dt-cite key="lohn2022ai,2020Thompson"></dt-cite>, optimization and architecture breakthroughs define the rate 
-            of return for a given unit of compute. <b_>It is this rate of return which is most critical to the pace of
-                progress and to the level of risk incurred by additional compute</b_>.</p>
+            of return for a given unit of compute. <boldtext>It is this rate of return which is most critical to the pace of
+                progress and to the level of risk incurred by additional compute</boldtext>.</p>
 
         </div>
 
@@ -554,7 +554,7 @@ figcaption .strong_, {
                 understood. A growing body of research suggests that the relationship between compute and performance is far more 
                 complex. Empirical evidence suggests that small models are rapidly becoming more performant and riskier. </p>
 
-            <p> <b_>Data quality reduces reliance on compute.</b_> Models trained on better data do not require as much compute. 
+            <p> <boldtext>Data quality reduces reliance on compute.</boldtext> Models trained on better data do not require as much compute. 
                 A large body of work has emerged which shows that efforts to better curate training corpus, including 
                 de-duping <dt-cite key="taylor2022galactica,kocetkov2022stack"></dt-cite>, data pruning <dt-cite key="marion2023more,singh2024aya,sorscher2023neural,albalak2024survey,tirumala2023d4,chimoto2024critical"></dt-cite> 
                 or data prioritization <dt-cite key="boubdir2023prompts,thakkar2023selfinfluence"></dt-cite> can compensate for more weights. 
@@ -563,7 +563,7 @@ figcaption .strong_, {
                 If the size of a training dataset can be reduced without impacting performance <dt-cite key="marion2023more"></dt-cite>, 
                 training time is reduced. This directly impacts the number of training FLOP and means less compute is needed. </p>
 
-            <p> <b_>Optimization breakthroughs compensate for compute.</b_> Progress over the last few years has been as 
+            <p> <boldtext>Optimization breakthroughs compensate for compute.</boldtext> Progress over the last few years has been as 
                 much due to optimization improvements as it has been due to compute. This includes extending pre-training 
                 with instruction finetuning to teach models instruction following <dt-cite key="singh2024aya"></dt-cite>, model distillation 
                 using synthetic data from larger more performant "teachers" to train highly capable, smaller 
@@ -578,7 +578,7 @@ figcaption .strong_, {
                 In a mere span of 2 years, the best-performing daily scores from small model went from an average of 38.59% across to an average of 77.15% across 2024 submissions.
                 The takeaway is clear -- smaller models with the same amount of capacity are becoming more and more performant. </p>
 
-            <p> <b_>Architecture plays a significant role in determining scalability</b_> The introduction of a new architecture
+            <p> <boldtext>Architecture plays a significant role in determining scalability</boldtext> The introduction of a new architecture
                 design can fundamentally change the relationship between compute and 
                 performance <dt-cite key="tay2022scaling,Sevilla_2022,ho2024algorithmicprogresslanguagemodels"></dt-cite> and render any compute threshold that is 
                 set irrelevant. For example, the key breakthroughs in AI adoption around the world were the introduction of 
@@ -637,7 +637,7 @@ figcaption .strong_, {
     closely associated with the size of models because deep neural network layers are dominated by a single 
     operation -- matrix multiplies -- which can be decomposed into a set of floating point operations <dt-cite key="fawzi2022discovering,davies2024"></dt-cite>. </p>
    
-    <p> <b_>We first begin by noting there are some reasons FLOP are attractive as a policy measure.</b_> The primary one is 
+    <p> <boldtext>We first begin by noting there are some reasons FLOP are attractive as a policy measure.</boldtext> The primary one is 
         that FLOP provides a standardized way to compare across different hardware and software stacks. FLOP counts 
         don’t change across hardware – the number of mathematical operations is the same no matter what hardware you train a 
         model on. In a world where hardware is increasingly heterogeneous <dt-cite key="hooker2021"></dt-cite> and it is hard to replicate the 
@@ -670,7 +670,7 @@ figcaption .strong_, {
 
     <p> <q>If you cannot measure it, you cannot improve it.</q> <cite><i>Lord Kelvin</i></cite> </p>
 
-    <p> <b_>Training FLOP doesn't account for post-training leaps in performance</b_> Applying scrutiny and regulation based 
+    <p> <boldtext>Training FLOP doesn't account for post-training leaps in performance</boldtext> Applying scrutiny and regulation based 
         upon training FLOP ignores that a lot of compute can be spent outside of training to improve performance of a model. 
         This can be grouped under <q>inference-time compute</q> and can result in large performance gains that dramatically 
         increase the risk profile of a model.  The limited work to-date which has evaluated a subset 
@@ -698,7 +698,7 @@ figcaption .strong_, {
         tasks (Gemini has 2M context window) <dt-cite key="xiong2023effective"></dt-cite>. This can make the number of FLOP irrelevant if 
         sensitive biological data can be passed at inference time in a long-context window. </p>
 
-    <p> <b_>Difficulty Tracking FLOP across model lifecycle.</b_> Increasingly, training a model falls into distinct stages 
+    <p> <boldtext>Difficulty Tracking FLOP across model lifecycle.</boldtext> Increasingly, training a model falls into distinct stages 
         that all confer different properties. For example, unsupervised pre-training dominates compute costs because the 
         volume of data is typically in the trillions of tokens <dt-cite key="epoch2023trendsinthedollartrainingcostofmachinelearningsystems,heim2023palm"></dt-cite>. 
         Following this, there is instruction finetuning, which confers the model the ability to follow 
@@ -711,7 +711,7 @@ figcaption .strong_, {
         Furthermore, it may simply be infeasible to trace federated, decentralized training of models where hardware often 
         belongs to many different participants and training is conducted in a privacy-preserving manner <dt-cite key="donyehiya2023cold,borzunov2023petals,yuan2023decentralizedtrainingfoundationmodels,qin2024federatedfullparametertuningbillionsized"></dt-cite>. </p>
 
-    <p> <b_>How to handle Mixture of Experts (MoEs) and classic ensembling?</b_> 
+    <p> <boldtext>How to handle Mixture of Experts (MoEs) and classic ensembling?</boldtext> 
         MoEs <dt-cite key="zadouri2023pushing,shazeer2018meshtensorflow,riquelme2021scaling,du2022glam,fedus2022switch,tan2024scattered"></dt-cite> 
         are examples of adaptive compute -- where examples are routed to different parts of a model. This type of architecture 
         can often provide powerful efficiency gains, as despite a much larger overall architecture, only a subset of weights 
@@ -732,7 +732,7 @@ figcaption .strong_, {
          were averaged. If it only reflects the FLOP of the final model, this may underestimate risk given ensembling is known 
          to improve performance. </p>
 
-    <p> <b_>FLOP only accounts for a single model, but does not capture risk of the overall system.</b_>  
+    <p> <boldtext>FLOP only accounts for a single model, but does not capture risk of the overall system.</boldtext>  
         The emphasis on compute thresholds as an indicator of risk also implies that risk is the property of a single model 
         rather than the system in which it is deployed. In the real-world, impact and risk are rarely attributable to a 
         single model but are a facet of the entire system a model sits in and the way it interacts with its 
@@ -753,7 +753,7 @@ figcaption .strong_, {
         isolation. Typically, interdependent models feed into a user experience and interact with a set of choices about design and 
         delivery that impact the overall level of risk.  </p>
 
-    <p> <b_>FLOP varies dramatically for different modalities.</b_> In Figure \ref{fig:different_modalities}, we plot the 
+    <p> <boldtext>FLOP varies dramatically for different modalities.</boldtext> In Figure \ref{fig:different_modalities}, we plot the 
         FLOP requirements over time of models grouped according to modality and downstream use 
         case (model FLOP data from \citet{epoch2023pcdtrends}). It is easy to observe that the compute requirements have not 
         increased at the same rate across modalities. For example, code models typically require less 
