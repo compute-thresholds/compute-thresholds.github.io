@@ -556,7 +556,7 @@ figcaption .strong_, {
 
             <p> <b_>Data quality reduces reliance on compute.</b_> Models trained on better data do not require as much compute. 
                 A large body of work has emerged which shows that efforts to better curate training corpus, including 
-                de-duping <dt-cite key="taylor2022galactica, kocetkov2022stack"></dt-cite>, data pruning <dt-cite key="marion2023more,singh2024aya,sorscher2023neural,albalak2024survey,tirumala2023d4,chimoto2024critical"></dt-cite> 
+                de-duping <dt-cite key="taylor2022galactica,kocetkov2022stack"></dt-cite>, data pruning <dt-cite key="marion2023more,singh2024aya,sorscher2023neural,albalak2024survey,tirumala2023d4,chimoto2024critical"></dt-cite> 
                 or data prioritization <dt-cite key="boubdir2023prompts,thakkar2023selfinfluence"></dt-cite> can compensate for more weights. 
                 This suggests that the number of learnable parameters is not definitively the constraint on improving performance; 
                 investments in better data quality mitigate the need for more weights <dt-cite key="singh2024aya,penedo2023refinedweb,raffel2020exploring,lee2022deduplicating"></dt-cite>. 
@@ -593,7 +593,7 @@ figcaption .strong_, {
                 number of times during the training <dt-cite key="xue2023adaptive"></dt-cite>. All modern networks are trained based upon 
                 minimization of average error <dt-cite key="Goodfellow-et-al-2016"></dt-cite>. This means that learning rare artifacts requires 
                 far more training time or capacity due to the diluted signal of infrequent attributes relative to the most 
-                frequent patterns in the dataset <dt-cite key="Achille2017CriticalLP, jiang2020exploring, Mangalam2019DoDN, 2020fartash,frankle2020,pmlr-v70-arpit17a"></dt-cite>. 
+                frequent patterns in the dataset <dt-cite key="Achille2017CriticalLP,jiang2020exploring,Mangalam2019DoDN,2020fartash,frankle2020,pmlr-v70-arpit17a"></dt-cite>. 
                 Small models are already good at learning the most frequent features, and most easy features and common patterns are 
                 learned early on training with much harder rare features learned in later stages <dt-cite key="agarwal2020estimating,paul2021deep,Mangalam2019DoDN,siddiqui2022metadata,abbe2021staircasepropertyhierarchicalstructure"></dt-cite>. 
                 When we radically scale the size of a model, we show the most gains in performance on are rare and underrepresented 
@@ -677,7 +677,7 @@ figcaption .strong_, {
         of <q>inference-time compute</q> improvements estimates these can impart gains between 5x and 20x of base level
         post-training performance <dt-cite key="davidson2023ai"></dt-cite>.<q>inference-time compute</q> includes best-of-n sampling 
         techniques <dt-cite key="geminiteam2024gemini"></dt-cite>, chain-of-thought reasoning <dt-cite key="wei2023chainofthought,hsieh2023distilling,wang2023selfconsistency"></dt-cite> 
-        and model distillation using synthetic data  <dt-cite key="aryabumi2024aya,shimabucoro2024llmseellmdo,ustun2024aya, geminiteam2024gemini"></dt-cite>. 
+        and model distillation using synthetic data  <dt-cite key="aryabumi2024aya,shimabucoro2024llmseellmdo,ustun2024aya,geminiteam2024gemini"></dt-cite>. 
         All these techniques require more compute at test-time because of the need to perform more forward passes of the 
         model to generate additional samples. However, these are not reflected in training time costs and indeed 
         can often <i>reduce</i> the compute needed during training. For example, smaller, more performant models are often 
@@ -823,7 +823,7 @@ figcaption .strong_, {
         which either try and predict how a model's pre-training loss scales <dt-cite key="bowman2023things"></dt-cite> 
         or how downstream properties emerge with scale. It is the latter task which is urgently needed by policymakers 
         in order to anticipate the emergence of unsafe capabilities and inform restrictions (such as compute thresholds) 
-        at inflection points where risk increases with scale <dt-cite key="anthropic_responsible_scaling,openai_global_affairs, kaminski_regulating_2023"></dt-cite>.  </p>
+        at inflection points where risk increases with scale <dt-cite key="anthropic_responsible_scaling,openai_global_affairs,kaminski_regulating_2023"></dt-cite>.  </p>
       
       <p> One of the biggest limitations of scaling laws is that they have only been shown to hold when predicting 
         a model’s pre-training test loss <dt-cite key="bowman2023things"></dt-cite>, which measures the model’s 
@@ -1391,7 +1391,7 @@ for (var i = 0; i < btns4.length; i++) {
   eprint={2211.09085},
   archivePrefix={arXiv},
   primaryClass={cs.CL}
-}
+  }
   
 @misc{kocetkov2022stack,
   title={The Stack: 3 TB of permissively licensed source code}, 
@@ -1758,7 +1758,7 @@ for (var i = 0; i < btns4.length; i++) {
   title={Do deep neural networks learn shallow learnable examples first},
   author={Karttikeya Mangalam and Vinay Uday Prabhu},
   year={2019}
-}
+  }
 
 @ARTICLE{2020fartash,
   author = {{Faghri}, Fartash and {Duvenaud}, David and {Fleet}, David J. and
@@ -1775,7 +1775,7 @@ for (var i = 0; i < btns4.length; i++) {
   primaryClass = {cs.LG},
   adsurl = {https://ui.adsabs.harvard.edu/abs/2020arXiv200704532F},
   adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-}
+  }
 
 @article{frankle2020,
   author       = {Jonathan Frankle and
