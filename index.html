@@ -560,10 +560,10 @@ figcaption .strong_, {
 
             <p> <b>Data quality reduces reliance on compute.</b> Models trained on better data do not require as much compute. 
                 A large body of work has emerged which shows that efforts to better curate training corpus, including 
-                de-duping <dt-cite key="taylor2022galactica, kocetkov2022stack"></dt-cite>, data pruning <dt-cite key="marion2023more,ayadata2024,sorscher2023neural,albalak2024survey,tirumala2023d4,chimoto2024critical"></dt-cite> 
+                de-duping <dt-cite key="taylor2022galactica, kocetkov2022stack"></dt-cite>, data pruning <dt-cite key="marion2023more,singh2024aya,sorscher2023neural,albalak2024survey,tirumala2023d4,chimoto2024critical"></dt-cite> 
                 or data prioritization <dt-cite key="boubdir2023prompts,thakkar2023selfinfluence"></dt-cite> can compensate for more weights. 
                 This suggests that the number of learnable parameters is not definitively the constraint on improving performance; 
-                investments in better data quality mitigate the need for more weights <dt-cite key="ayadata2024,penedo2023refinedweb,raffel2020exploring,lee2022deduplicating"></dt-cite>. 
+                investments in better data quality mitigate the need for more weights <dt-cite key="singh2024aya,penedo2023refinedweb,raffel2020exploring,lee2022deduplicating"></dt-cite>. 
                 If the size of a training dataset can be reduced without impacting performance <dt-cite key="marion2023more"></dt-cite>, 
                 training time is reduced. This directly impacts the number of training FLOP and means less compute is needed. </p>
 
@@ -584,7 +584,7 @@ figcaption .strong_, {
 
             <p> <b>Architecture plays a significant role in determining scalability</b> The introduction of a new architecture
                 design can fundamentally change the relationship between compute and 
-                performance <dt-cite key="tay2022scaling,Sevilla_2022,ho2024algorithmic"></dt-cite> and render any compute threshold that is 
+                performance <dt-cite key="tay2022scaling,Sevilla_2022,ho2024algorithmicprogresslanguagemodels"></dt-cite> and render any compute threshold that is 
                 set irrelevant. For example, the key breakthroughs in AI adoption around the world were the introduction of 
                 architectures like convolutional neural networks (CNNs) for vision <dt-cite key="inproceedings2011,Krizhevsky2012,szegedy2014going"></dt-cite> and 
                 Transformers for language modeling <dt-cite key="vaswani2023attention"></dt-cite>. </p>
@@ -706,7 +706,7 @@ figcaption .strong_, {
         that all confer different properties. For example, unsupervised pre-training dominates compute costs because the 
         volume of data is typically in the trillions of tokens <dt-cite key="epoch2023trendsinthedollartrainingcostofmachinelearningsystems,heim2023palm"></dt-cite>. 
         Following this, there is instruction finetuning, which confers the model the ability to follow 
-        instructions <dt-cite key="ayadata2024"></dt-cite> and then preference training <dt-cite key="aakanksha2024multilingualalignmentprismaligning,ahmadian2024basics,bai2022constitutional,ouyang2022LLMRLHF,lee2023rlaif,tunstall2023zephyr,khalifa2021distributional,rafailov2023DPO,azar2023IPO"></dt-cite>, 
+        instructions <dt-cite key="singh2024aya"></dt-cite> and then preference training <dt-cite key="aakanksha2024multilingualalignmentprismaligning,ahmadian2024basics,bai2022constitutional,ouyang2022LLMRLHF,lee2023rlaif,tunstall2023zephyr,khalifa2021distributional,rafailov2023DPO,azar2023IPO"></dt-cite>, 
         which aligns model performance with human values. Between each of these steps models are often released 
         publicly <dt-cite key="ustun2024aya,touvron2023llama,aryabumi2024aya"></dt-cite>, meaning that developers can take a model from a 
         different developer and continue optimizing. The models with the most downloads on platforms like HuggingFace are 
@@ -832,7 +832,7 @@ figcaption .strong_, {
       <p> One of the biggest limitations of scaling laws is that they have only been shown to hold when predicting 
         a model’s pre-training test loss <dt-cite key="bowman2023things"></dt-cite>, which measures the model’s 
         ability to correctly predict how an incomplete piece of text will be continued. Indeed, when actual 
-        performance on downstream tasks is used, the results are often murky or inconsistent <dt-cite key="Ganguli_2022,schaeffer2023emergent,anwar2024foundational,Ganguli_2022,schaeffer2024predictingdownstreamcapabilitiesfrontier,hu2024predictingemergentabilitiesinfinite"></dt-cite>. 
+        performance on downstream tasks is used, the results are often murky or inconsistent <dt-cite key="Ganguli_2022,schaeffer2023emergent,anwar2024foundationalchallengesassuringalignment,Ganguli_2022,schaeffer2024predictingdownstreamcapabilitiesfrontier,hu2024predictingemergentabilitiesinfinite"></dt-cite>. 
         Indeed, the term <i>emerging properties</i> is often used to describe this 
         discrepancy <dt-cite key="Wei2022,srivastava2023imitation"></dt-cite>: a property that appears “suddenly” as the 
         complexity of the system increases and cannot be predicted. Emergent properties imply that scaling laws 
@@ -858,7 +858,7 @@ figcaption .strong_, {
         Typically, policy use cases demand high precision over a longer time horizon, which is exactly the type of 
         extrapolation we are currently worst at. Specifying which risks are of interest will also benefit 
         precision; scaling laws tend to have high variance in precision between tasks. For example, code-generation 
-        has shown fairly predictable power law scaling across 10 orders of magnitude of compute <dt-cite key="hu2024predictingemergentabilitiesinfinite,anwar2024foundational"></dt-cite>. 
+        has shown fairly predictable power law scaling across 10 orders of magnitude of compute <dt-cite key="hu2024predictingemergentabilitiesinfinite,anwar2024foundationalchallengesassuringalignment"></dt-cite>. 
         However, other capabilities have been far shown to scale far more erratically <dt-cite key="srivastava2023imitation,caballero2023broken"></dt-cite>. 
         Perhaps as important, policymakers should be aware that accurately predicting the impact of scaling is 
         currently far from feasible. Hence, there is currently limited scientific support for using exact thresholds 
@@ -1032,7 +1032,6 @@ for (var i = 0; i < btns4.length; i++) {
 
 <p> This article was in part prepared using the <a href="https://pair-code.github.io/saliency/">Google AI Pair</a> template and style guide.
    The citation management for this article uses the <a href="https://github.com/distillpub/template">template v1</a> of the Distill style script. </p>
-<p>We thank the ... </p>
   
 <h3>Citation</h3>
 <pre class="citation long">@misc{hooker2024limitationscomputethresholdsgovernance,
@@ -1227,6 +1226,1379 @@ for (var i = 0; i < btns4.length; i++) {
   pdf            = {http://proceedings.mlr.press/v28/coates13.pdf}
 }
 
+@article{2016Canziani,
+  title          = {{An Analysis of Deep Neural Network Models for Practical Applications}},
+  author         = {Canziani, Alfredo and Paszke, Adam and Culurciello, Eugenio},
+  year           = {2016},
+  month          = {May},
+  journal        = {arXiv e-prints},
+  pages          = {arXiv:1605.07678},
+  adsurl         = {https://ui.adsabs.harvard.edu/abs/2016arXiv160507678C},
+  adsnote        = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@misc{strubell2019energy,
+  title         = {Energy and Policy Considerations for Deep Learning in NLP},
+  author        = {Emma Strubell and Ananya Ganesh and Andrew McCallum},
+  year          = {2019},
+  eprint        = {1906.02243},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL}
+  }
+
+  @misc{rae2021scaling,
+    title          = {{Scaling Language Models: Methods, Analysis \& Insights from Training Gopher}},
+    author         = {Jack W. Rae and Sebastian Borgeaud and Trevor Cai and Katie Millican and Jordan Hoffmann and Francis Song and John Aslanides and Sarah Henderson and Roman Ring and Susannah Young and Eliza Rutherford and Tom Hennigan and Jacob Menick and Albin Cassirer and Richard Powell and George van den Driessche and Lisa Anne Hendricks and Maribeth Rauh and Po-Sen Huang and Amelia Glaese and Johannes Welbl and Sumanth Dathathri and Saffron Huang and Jonathan Uesato and John Mellor and Irina Higgins and Antonia Creswell and Nat McAleese and Amy Wu and Erich Elsen and Siddhant Jayakumar and Elena Buchatskaya and David Budden and Esme Sutherland and Karen Simonyan and Michela Paganini and Laurent Sifre and Lena Martens and Xiang Lorraine Li and Adhiguna Kuncoro and Aida Nematzadeh and Elena Gribovskaya and Domenic Donato and Angeliki Lazaridou and Arthur Mensch and Jean-Baptiste Lespiau and Maria Tsimpoukelli and Nikolai Grigorev and Doug Fritz and Thibault Sottiaux and Mantas Pajarskas and Toby Pohlen and Zhitao Gong and Daniel Toyama and Cyprien de Masson d'Autume and Yujia Li and Tayfun Terzi and Vladimir Mikulik and Igor Babuschkin and Aidan Clark and Diego de Las Casas and Aurelia Guy and Chris Jones and James Bradbury and Matthew Johnson and Blake Hechtman and Laura Weidinger and Iason Gabriel and William Isaac and Ed Lockhart and Simon Osindero and Laura Rimell and Chris Dyer and Oriol Vinyals and Kareem Ayoub and Jeff Stanway and Lorrayne Bennett and Demis Hassabis and Koray Kavukcuoglu and Geoffrey Irving},
+    year           = {2021}
+  }
+
+  @misc{raffel2020exploring,
+    title          = {{Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer}},
+    author         = {Colin Raffel and Noam Shazeer and Adam Roberts and Katherine Lee and Sharan Narang and Michael Matena and Yanqi Zhou and Wei Li and Peter J. Liu},
+    year           = {2020}
+  }
+
+  @misc{bommasani2021opportunities,
+    title          = {{On the Opportunities and Risks of Foundation Models}},
+    author         = {Bommasani, Rishi and Hudson, Drew A and Adeli, Ehsan and Altman, Russ and Arora, Simran and von Arx, Sydney and Bernstein, Michael S and Bohg, Jeannette and Bosselut, Antoine and Brunskill, Emma and others},
+    year           = {2021}
+  }
+
+  @inproceedings{bender_gebru_2021,
+    title          = {{On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?}},
+    author         = {Bender, Emily M. and Gebru, Timnit and McMillan-Major, Angelina and Shmitchell, Shmargaret},
+    year           = {2021},
+    booktitle      = {Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency},
+    location       = {Virtual Event, Canada},
+    publisher      = {Association for Computing Machinery},
+    address        = {New York, NY, USA},
+    series         = {FAccT '21},
+    pages          = {610–623},
+    url            = {https://doi.org/10.1145/3442188.3445922},
+    numpages       = {14}
+  }
+
+  @misc{SilverBittrLesson,
+    author = {Sutton, Richard},
+    title = {The Bitter Lesson},
+    year = {2019},
+    url = {http://www.incompleteideas.net/IncIdeas/BitterLesson.html},
+    urldate = {2023-10-04}
+    }
+
+    @misc{almazrouei2023falconseriesopenlanguage,
+      title={The Falcon Series of Open Language Models}, 
+      author={Ebtesam Almazrouei and Hamza Alobeidli and Abdulaziz Alshamsi and Alessandro Cappelli and Ruxandra Cojocaru and Mérouane Debbah and Étienne Goffinet and Daniel Hesslow and Julien Launay and Quentin Malartic and Daniele Mazzotta and Badreddine Noune and Baptiste Pannier and Guilherme Penedo},
+      year={2023},
+      eprint={2311.16867},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2311.16867}, 
+  }
+
+  @article{llama3modelcard,
+    title={Llama 3 Model Card},
+    author={AI@Meta},
+    year={2024},
+    url = {https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md}
+    }
+
+  @misc{cohere_c4ai_command_r_plus,
+    title = {C4AI Command R+},
+    url={https://huggingface.co/CohereForAI/c4ai-command-r-plus},
+    author= {Cohere and Cohere For AI Team},
+    year={2024},
+    note = {Accessed: 2024-06-30}
+  }
+
+  @misc{gemma_2024,
+    title={Gemma},
+    url={https://www.kaggle.com/m/3301},
+    DOI={10.34740/KAGGLE/M/3301},
+    publisher={Kaggle},
+    author={Gemma Team},
+    year={2024}
+  }
+
+  @misc{aryabumi2024aya,
+    title={Aya 23: Open Weight Releases to Further Multilingual Progress}, 
+    author={Viraat Aryabumi and John Dang and Dwarak Talupuru and Saurabh Dash and David Cairuz and Hangyu Lin and Bharat Venkitesh and Madeline Smith and Kelly Marchisio and Sebastian Ruder and Acyr Locatelli and Julia Kreutzer and Nick Frosst and Phil Blunsom and Marzieh Fadaee and Ahmet Üstün and Sara Hooker},
+    year={2024},
+    eprint={2405.15032},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{workshop2023bloom176bparameteropenaccessmultilingual,
+  title={BLOOM: A 176B-Parameter Open-Access Multilingual Language Model}, 
+  author={BigScience Workshop and : and Teven Le Scao and Angela Fan and Christopher Akiki and Ellie Pavlick and Suzana Ilić et al.},
+  year={2023},
+  eprint={2211.05100},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2211.05100}, 
+}
+
+@misc{lohn2022ai,
+  title={AI and Compute: How Much Longer Can Computing Power Drive Artificial Intelligence Progress?},
+  author={Lohn, Andrew J. and Musser, Micah},
+  year={2022},
+  month={January},
+  publisher={Center for Security and Emerging Technology},
+  url={https://doi.org/10.51593/2021CA009}
+}
+
+@ARTICLE{2020Thompson,
+  author = {{Thompson}, Neil C. and {Greenewald}, Kristjan and {Lee}, Keeheon and
+  {Manso}, Gabriel F.},
+  title = "{The Computational Limits of Deep Learning}",
+  journal = {arXiv e-prints},
+  keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+  year = 2020,
+  month = jul,
+  eid = {arXiv:2007.05558},
+  pages = {arXiv:2007.05558},
+  archivePrefix = {arXiv},
+  eprint = {2007.05558},
+  primaryClass = {cs.LG},
+  adsurl = {https://ui.adsabs.harvard.edu/abs/2020arXiv200705558T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+  }
+
+  @article{liang2023,
+    author = {Liang, Jinfeng and Huang, Yi and Yin, Li and Sadeghi, Fatemeh and Yang, Yanping and Xiao, Xue and Adami, Hans-Olov and Ye, Weimin and Zhang, Zhe and Fang, Fang},
+    year = {2023},
+    month = {05},
+    pages = {},
+    title = {Cancer risk following surgical removal of tonsils and adenoids — a population-based, sibling-controlled cohort study in Sweden},
+    volume = {21},
+    journal = {BMC Medicine},
+    doi = {10.1186/s12916-023-02902-x}
+    }
+
+  @article{Terry-McElrath2011,
+    author = {Terry-McElrath, Yvonne M. and Emery, Sherry and Szczypka, Gery and Johnston, Lloyd D.},
+    year = {2011},
+    title = {Potential exposure to anti-drug advertising and drug-related attitudes, beliefs, and behaviors among United States youth, 1995-2006},
+    journal = {Addictive Behaviors},
+    volume = {36},
+    number = {1-2},
+    pages = {116--124},
+    publisher = {Elsevier {BV}},
+    doi = {10.1016/j.addbeh.2010.09.005}
+    }
+
+    @misc{taylor2022galactica,
+      title={Galactica: A Large Language Model for Science}, 
+      author={Ross Taylor and Marcin Kardas and Guillem Cucurull and Thomas Scialom and Anthony Hartshorn and Elvis Saravia and Andrew Poulton and Viktor Kerkez and Robert Stojnic},
+      year={2022},
+      eprint={2211.09085},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+  }
+  
+  @misc{kocetkov2022stack,
+    title={The Stack: 3 TB of permissively licensed source code}, 
+    author={Denis Kocetkov and Raymond Li and Loubna Ben Allal and Jia Li and Chenghao Mou and Carlos Muñoz Ferrandis and Yacine Jernite and Margaret Mitchell and Sean Hughes and Thomas Wolf and Dzmitry Bahdanau and Leandro von Werra and Harm de Vries},
+    year={2022},
+    eprint={2211.15533},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{marion2023more,
+  title={When Less is More: Investigating Data Pruning for Pretraining LLMs at Scale}, 
+  author={Max Marion and Ahmet Üstün and Luiza Pozzobon and Alex Wang and Marzieh Fadaee and Sara Hooker},
+  year={2023},
+  eprint={2309.04564},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{singh2024aya,
+  title={Aya Dataset: An Open-Access Collection for Multilingual Instruction Tuning}, 
+  author={Shivalika Singh and Freddie Vargus and Daniel Dsouza and Börje F. Karlsson and Abinaya Mahendiran and Wei-Yin Ko and Herumb Shandilya and Jay Patel and Deividas Mataciunas and Laura OMahony and Mike Zhang and Ramith Hettiarachchi and Joseph Wilson and Marina Machado and Luisa Souza Moura and Dominik Krzemiński and Hakimeh Fadaei and Irem Ergün and Ifeoma Okoh and Aisha Alaagib and Oshan Mudannayake and Zaid Alyafeai and Vu Minh Chien and Sebastian Ruder and Surya Guthikonda and Emad A. Alghamdi and Sebastian Gehrmann and Niklas Muennighoff and Max Bartolo and Julia Kreutzer and Ahmet Üstün and Marzieh Fadaee and Sara Hooker},
+  year={2024},
+  eprint={2402.06619},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{sorscher2023neural,
+  title={Beyond neural scaling laws: beating power law scaling via data pruning}, 
+  author={Ben Sorscher and Robert Geirhos and Shashank Shekhar and Surya Ganguli and Ari S. Morcos},
+  year={2023},
+  eprint={2206.14486},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{albalak2024survey,
+  title={A Survey on Data Selection for Language Models}, 
+  author={Alon Albalak and Yanai Elazar and Sang Michael Xie and Shayne Longpre and Nathan Lambert and Xinyi Wang and Niklas Muennighoff and Bairu Hou and Liangming Pan and Haewon Jeong and Colin Raffel and Shiyu Chang and Tatsunori Hashimoto and William Yang Wang},
+  year={2024},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{tirumala2023d4,
+  title={D4: Improving LLM Pretraining via Document De-Duplication and Diversification}, 
+  author={Kushal Tirumala and Daniel Simig and Armen Aghajanyan and Ari S. Morcos},
+  year={2023},
+  eprint={2308.12284},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{chimoto2024critical,
+  title={Critical Learning Periods: Leveraging Early Training Dynamics for Efficient Data Pruning}, 
+  author={Everlyn Asiko Chimoto and Jay Gala and Orevaoghene Ahia and Julia Kreutzer and Bruce A. Bassett and Sara Hooker},
+  year={2024},
+  eprint={2405.19462},
+  archivePrefix={arXiv},
+  primaryClass={id='cs.CL' full_name='Computation and Language' is_active=True alt_name='cmp-lg' in_archive='cs' is_general=False description='Covers natural language processing. Roughly includes material in ACM Subject Class I.2.7. Note that work on artificial languages (programming languages, logics, formal systems) that does not explicitly address natural-language issues broadly construed (natural-language processing, computational linguistics, speech, text retrieval, etc.) is not appropriate for this area.'}
+}
+
+@misc{boubdir2023prompts,
+  title={Which Prompts Make The Difference? Data Prioritization For Efficient Human LLM Evaluation}, 
+  author={Meriem Boubdir and Edward Kim and Beyza Ermis and Marzieh Fadaee and Sara Hooker},
+  year={2023},
+  eprint={2310.14424},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{thakkar2023selfinfluence,
+  title={Self-Influence Guided Data Reweighting for Language Model Pre-training},
+  author={Megh Thakkar and Tolga Bolukbasi and Sriram Ganapathy and Shikhar Vashishth and Sarath Chandar and Partha Talukdar},
+  year={2023},
+  eprint={2311.00913},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{penedo2023refinedweb,
+  title={The RefinedWeb Dataset for Falcon LLM: Outperforming Curated Corpora with Web Data, and Web Data Only}, 
+  author={Guilherme Penedo and Quentin Malartic and Daniel Hesslow and Ruxandra Cojocaru and Alessandro Cappelli and Hamza Alobeidli and Baptiste Pannier and Ebtesam Almazrouei and Julien Launay},
+  year={2023},
+  eprint={2306.01116},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{raffel2020exploring,
+  title          = {{Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer}},
+  author         = {Colin Raffel and Noam Shazeer and Adam Roberts and Katherine Lee and Sharan Narang and Michael Matena and Yanqi Zhou and Wei Li and Peter J. Liu},
+  year           = {2020}
+}
+
+@misc{lee2022deduplicating,
+  title={Deduplicating Training Data Makes Language Models Better}, 
+  author={Katherine Lee and Daphne Ippolito and Andrew Nystrom and Chiyuan Zhang and Douglas Eck and Chris Callison-Burch and Nicholas Carlini},
+  year={2022},
+  eprint={2107.06499},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{gemmateam2024gemma,
+  title={Gemma: Open Models Based on Gemini Research and Technology}, 
+  author={Gemma Team and Thomas Mesnard and Cassidy Hardin and Robert Dadashi and Surya Bhupatiraju and Shreya Pathak and Laurent Sifre and Morgane Rivière and Mihir Sanjay Kale and Juliette Love and Pouya Tafti and Léonard Hussenot and Pier Giuseppe Sessa and Aakanksha Chowdhery and Adam Roberts and Aditya Barua and Alex Botev and Alex Castro-Ros and Ambrose Slone and Amélie Héliou and Andrea Tacchetti and Anna Bulanova and Antonia Paterson and Beth Tsai and Bobak Shahriari and Charline Le Lan and Christopher A. Choquette-Choo and Clément Crepy and Daniel Cer and Daphne Ippolito and David Reid and Elena Buchatskaya and Eric Ni and Eric Noland and Geng Yan and George Tucker and George-Christian Muraru and Grigory Rozhdestvenskiy and Henryk Michalewski and Ian Tenney and Ivan Grishchenko and Jacob Austin and James Keeling and Jane Labanowski and Jean-Baptiste Lespiau and Jeff Stanway and Jenny Brennan and Jeremy Chen and Johan Ferret and Justin Chiu and Justin Mao-Jones and Katherine Lee and Kathy Yu and Katie Millican and Lars Lowe Sjoesund and Lisa Lee and Lucas Dixon and Machel Reid and Maciej Mikuła and Mateo Wirth and Michael Sharman and Nikolai Chinaev and Nithum Thain and Olivier Bachem and Oscar Chang and Oscar Wahltinez and Paige Bailey and Paul Michel and Petko Yotov and Rahma Chaabouni and Ramona Comanescu and Reena Jana and Rohan Anil and Ross McIlroy and Ruibo Liu and Ryan Mullins and Samuel L Smith and Sebastian Borgeaud and Sertan Girgin and Sholto Douglas and Shree Pandya and Siamak Shakeri and Soham De and Ted Klimenko and Tom Hennigan and Vlad Feinberg and Wojciech Stokowiec and Yu-hui Chen and Zafarali Ahmed and Zhitao Gong and Tris Warkentin and Ludovic Peran and Minh Giang and Clément Farabet and Oriol Vinyals and Jeff Dean and Koray Kavukcuoglu and Demis Hassabis and Zoubin Ghahramani and Douglas Eck and Joelle Barral and Fernando Pereira and Eli Collins and Armand Joulin and Noah Fiedel and Evan Senter and Alek Andreev and Kathleen Kenealy},
+  year={2024},
+  eprint={2403.08295},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{wei2023chainofthought,
+  title={Chain-of-Thought Prompting Elicits Reasoning in Large Language Models}, 
+  author={Jason Wei and Xuezhi Wang and Dale Schuurmans and Maarten Bosma and Brian Ichter and Fei Xia and Ed Chi and Quoc Le and Denny Zhou},
+  year={2023},
+  eprint={2201.11903},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{hsieh2023distilling,
+  title={Distilling Step-by-Step! Outperforming Larger Language Models with Less Training Data and Smaller Model Sizes}, 
+  author={Cheng-Yu Hsieh and Chun-Liang Li and Chih-Kuan Yeh and Hootan Nakhost and Yasuhisa Fujii and Alexander Ratner and Ranjay Krishna and Chen-Yu Lee and Tomas Pfister},
+  year={2023},
+  eprint={2305.02301},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{xiong2023effective,
+  title={Effective Long-Context Scaling of Foundation Models}, 
+  author={Wenhan Xiong and Jingyu Liu and Igor Molybog and Hejia Zhang and Prajjwal Bhargava and Rui Hou and Louis Martin and Rashi Rungta and Karthik Abinav Sankararaman and Barlas Oguz and Madian Khabsa and Han Fang and Yashar Mehdad and Sharan Narang and Kshitiz Malik and Angela Fan and Shruti Bhosale and Sergey Edunov and Mike Lewis and Sinong Wang and Hao Ma},
+  year={2023},
+  eprint={2309.16039},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{qin2023toolllm,
+  title={ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs}, 
+  author={Yujia Qin and Shihao Liang and Yining Ye and Kunlun Zhu and Lan Yan and Yaxi Lu and Yankai Lin and Xin Cong and Xiangru Tang and Bill Qian and Sihan Zhao and Lauren Hong and Runchu Tian and Ruobing Xie and Jie Zhou and Mark Gerstein and Dahai Li and Zhiyuan Liu and Maosong Sun},
+  year={2023},
+  eprint={2307.16789},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}
+}
+
+@misc{wang2023voyager,
+  title={Voyager: An Open-Ended Embodied Agent with Large Language Models}, 
+  author={Guanzhi Wang and Yuqi Xie and Yunfan Jiang and Ajay Mandlekar and Chaowei Xiao and Yuke Zhu and Linxi Fan and Anima Anandkumar},
+  year={2023},
+  eprint={2305.16291},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}
+}
+
+@misc{dang2024rlhfspeaklanguagesunlocking,
+  title={RLHF Can Speak Many Languages: Unlocking Multilingual Preference Optimization for LLMs}, 
+  author={John Dang and Arash Ahmadian and Kelly Marchisio and Julia Kreutzer and Ahmet Üstün and Sara Hooker},
+  year={2024},
+  eprint={2407.02552},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2407.02552}, 
+}
+
+@misc{ahmadian2024basics,
+  title={Back to Basics: Revisiting REINFORCE Style Optimization for Learning from Human Feedback in LLMs}, 
+  author={Arash Ahmadian and Chris Cremer and Matthias Gallé and Marzieh Fadaee and Julia Kreutzer and Olivier Pietquin and Ahmet Üstün and Sara Hooker},
+  year={2024},
+  eprint={2402.14740},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{ouyang2022LLMRLHF,
+  title={Training language models to follow instructions with human feedback}, 
+  author={Long Ouyang and Jeff Wu and Xu Jiang and Diogo Almeida and Carroll L. Wainwright and Pamela Mishkin and Chong Zhang and Sandhini Agarwal and Katarina Slama and Alex Ray and John Schulman and Jacob Hilton and Fraser Kelton and Luke Miller and Maddie Simens and Amanda Askell and Peter Welinder and Paul Christiano and Jan Leike and Ryan Lowe},
+  year={2022},
+  eprint={2203.02155},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+
+@misc{bai2022constitutional,
+  title={Constitutional AI: Harmlessness from AI Feedback}, 
+  author={Yuntao Bai and Saurav Kadavath and Sandipan Kundu and Amanda Askell and Jackson Kernion and Andy Jones and Anna Chen and Anna Goldie and Azalia Mirhoseini and Cameron McKinnon and Carol Chen and Catherine Olsson and Christopher Olah and Danny Hernandez and Dawn Drain and Deep Ganguli and Dustin Li and Eli Tran-Johnson and Ethan Perez and Jamie Kerr and Jared Mueller and Jeffrey Ladish and Joshua Landau and Kamal Ndousse and Kamile Lukosuite and Liane Lovitt and Michael Sellitto and Nelson Elhage and Nicholas Schiefer and Noemi Mercado and Nova DasSarma and Robert Lasenby and Robin Larson and Sam Ringer and Scott Johnston and Shauna Kravec and Sheer El Showk and Stanislav Fort and Tamera Lanham and Timothy Telleen-Lawton and Tom Conerly and Tom Henighan and Tristan Hume and Samuel R. Bowman and Zac Hatfield-Dodds and Ben Mann and Dario Amodei and Nicholas Joseph and Sam McCandlish and Tom Brown and Jared Kaplan},
+  year={2022},
+  eprint={2212.08073},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{lee2023rlaif,
+  title={RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback}, 
+  author={Harrison Lee and Samrat Phatale and Hassan Mansoor and Thomas Mesnard and Johan Ferret and Kellie Lu and Colton Bishop and Ethan Hall and Victor Carbune and Abhinav Rastogi and Sushant Prakash},
+  year={2023},
+  eprint={2309.00267},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{tunstall2023zephyr,
+  title={Zephyr: Direct Distillation of LM Alignment}, 
+  author={Lewis Tunstall and Edward Beeching and Nathan Lambert and Nazneen Rajani and Kashif Rasul and Younes Belkada and Shengyi Huang and Leandro von Werra and Clémentine Fourrier and Nathan Habib and Nathan Sarrazin and Omar Sanseviero and Alexander M. Rush and Thomas Wolf},
+  year={2023},
+  eprint={2310.16944},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{khalifa2021distributional,
+  title={A Distributional Approach to Controlled Text Generation}, 
+  author={Muhammad Khalifa and Hady Elsahar and Marc Dymetman},
+  year={2021},
+  eprint={2012.11635},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{rafailov2023DPO,
+  title={Direct Preference Optimization: Your Language Model is Secretly a Reward Model}, 
+  author={Rafael Rafailov and Archit Sharma and Eric Mitchell and Stefano Ermon and Christopher D. Manning and Chelsea Finn},
+  year={2023},
+  eprint={2305.18290},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{azar2023IPO,
+  title={A General Theoretical Paradigm to Understand Learning from Human Preferences}, 
+  author={Mohammad Gheshlaghi Azar and Mark Rowland and Bilal Piot and Daniel Guo and Daniele Calandriello and Michal Valko and Rémi Munos},
+  year={2023},
+  eprint={2310.12036},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}
+}
+
+@misc{ho2024algorithmicprogresslanguagemodels,
+  title={Algorithmic progress in language models}, 
+  author={Anson Ho and Tamay Besiroglu and Ege Erdil and David Owen and Robi Rahman and Zifan Carl Guo and David Atkinson and Neil Thompson and Jaime Sevilla},
+  year={2024},
+  eprint={2403.05812},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2403.05812}, 
+}
+
+@misc{davidson2023ai,
+  title={AI capabilities can be significantly improved without expensive retraining}, 
+  author={Tom Davidson and Jean-Stanislas Denain and Pablo Villalobos and Guillem Bas},
+  year={2023},
+  eprint={2312.07413},
+  archivePrefix={arXiv},
+  primaryClass={id='cs.AI' full_name='Artificial Intelligence' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers all areas of AI except Vision, Robotics, Machine Learning, Multiagent Systems, and Computation and Language (Natural Language Processing), which have separate subject areas. In particular, includes Expert Systems, Theorem Proving (although this may overlap with Logic in Computer Science), Knowledge Representation, Planning, and Uncertainty in AI. Roughly includes material in ACM Subject Classes I.2.0, I.2.1, I.2.3, I.2.4, I.2.8, and I.2.11.'}
+}
+
+@article{hernandez2020,
+  author       = {Danny Hernandez and
+                  Tom B. Brown},
+  title        = {Measuring the Algorithmic Efficiency of Neural Networks},
+  journal      = {CoRR},
+  volume       = {abs/2005.04305},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2005.04305},
+  eprinttype    = {arXiv},
+  eprint       = {2005.04305},
+  timestamp    = {Thu, 14 May 2020 16:56:02 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2005-04305.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+  }
+
+  @misc{erdil2023algorithmic,
+    title={Algorithmic progress in computer vision}, 
+    author={Ege Erdil and Tamay Besiroglu},
+    year={2023},
+    eprint={2212.05153},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+
+@misc{METR_undated,
+  title = {Elicitation Gap},
+  url = {https://metr.github.io/autonomy-evals-guide/elicitation-gap/},
+  author = {{METR Team}},
+  urldate = {2023-09-06}
+  }
+
+  @misc{liu2024sophia,
+    title={Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training}, 
+    author={Hong Liu and Zhiyuan Li and David Hall and Percy Liang and Tengyu Ma},
+    year={2024},
+    eprint={2305.14342},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+
+@misc{tay2022scaling,
+  title={Scaling Laws vs Model Architectures: How does Inductive Bias Influence Scaling?}, 
+  author={Yi Tay and Mostafa Dehghani and Samira Abnar and Hyung Won Chung and William Fedus and Jinfeng Rao and Sharan Narang and Vinh Q. Tran and Dani Yogatama and Donald Metzler},
+  year={2022},
+  eprint={2207.10551},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@inproceedings{Sevilla_2022,
+  title={Compute Trends Across Three Eras of Machine Learning},
+  url={http://dx.doi.org/10.1109/IJCNN55064.2022.9891914},
+  DOI={10.1109/ijcnn55064.2022.9891914},
+  booktitle={2022 International Joint Conference on Neural Networks (IJCNN)},
+  publisher={IEEE},
+  author={Sevilla, Jaime and Heim, Lennart and Ho, Anson and Besiroglu, Tamay and Hobbhahn, Marius and Villalobos, Pablo},
+  year={2022},
+  month=jul }
+
+  @misc{vaswani2023attention,
+    title={Attention Is All You Need}, 
+    author={Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
+    year={2023},
+    eprint={1706.03762},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{xue2023adaptive,
+  title={Adaptive Computation with Elastic Input Sequence}, 
+  author={Fuzhao Xue and Valerii Likhosherstov and Anurag Arnab and Neil Houlsby and Mostafa Dehghani and Yang You},
+  year={2023},
+  eprint={2301.13195},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@book{Goodfellow-et-al-2016,
+  title={Deep Learning},
+  author={Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+  publisher={MIT Press},
+  note={\url{http://www.deeplearningbook.org}},
+  year={2016}
+}
+
+@article{Achille2017CriticalLP,
+  title={Critical Learning Periods in Deep Neural Networks},
+  author={Alessandro Achille and Matteo Rovere and Stefano Soatto},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1711.08856}
+  }
+
+  @article{jiang2020exploring,
+    title={Exploring the Memorization-Generalization Continuum in Deep Learning},
+    author={Jiang, Ziheng and Zhang, Chiyuan and Talwar, Kunal and Mozer, Michael C},
+    journal={arXiv preprint arXiv:2002.03206},
+    year={2020}
+    }
+
+  
+  @inproceedings{Mangalam2019DoDN,
+    title={Do deep neural networks learn shallow learnable examples first},
+    author={Karttikeya Mangalam and Vinay Uday Prabhu},
+    year={2019}
+  }
+
+  @ARTICLE{2020fartash,
+    author = {{Faghri}, Fartash and {Duvenaud}, David and {Fleet}, David J. and
+      {Ba}, Jimmy},
+     title = "{A Study of Gradient Variance in Deep Learning}",
+   journal = {arXiv e-prints},
+  keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+      year = {2020},
+     month = {jul},
+       eid = {arXiv:2007.04532},
+     pages = {arXiv:2007.04532},
+archivePrefix = {arXiv},
+    eprint = {2007.04532},
+primaryClass = {cs.LG},
+    adsurl = {https://ui.adsabs.harvard.edu/abs/2020arXiv200704532F},
+   adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@article{frankle2020,
+  author       = {Jonathan Frankle and
+                  David J. Schwab and
+                  Ari S. Morcos},
+  title        = {The Early Phase of Neural Network Training},
+  journal      = {CoRR},
+  volume       = {abs/2002.10365},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2002.10365},
+  eprinttype    = {arXiv},
+  eprint       = {2002.10365},
+  timestamp    = {Tue, 03 Mar 2020 14:32:13 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2002-10365.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+  }
+
+  @InProceedings{pmlr-v70-arpit17a,
+    title = 	 {A Closer Look at Memorization in Deep Networks},
+    author =       {Devansh Arpit and Stanis{\l}aw Jastrz{\k{e}}bski and Nicolas Ballas and David Krueger and Emmanuel Bengio and Maxinder S. Kanwal and Tegan Maharaj and Asja Fischer and Aaron Courville and Yoshua Bengio and Simon Lacoste-Julien},
+    booktitle = 	 {Proceedings of the 34th International Conference on Machine Learning},
+    pages = 	 {233--242},
+    year = 	 {2017},
+    editor = 	 {Precup, Doina and Teh, Yee Whye},
+    volume = 	 {70},
+    series = 	 {Proceedings of Machine Learning Research},
+    month = 	 {06--11 Aug},
+    publisher =    {PMLR},
+    pdf = 	 {http://proceedings.mlr.press/v70/arpit17a/arpit17a.pdf},
+    url = 	 {https://proceedings.mlr.press/v70/arpit17a.html},
+    abstract = 	 {We examine the role of memorization in deep learning, drawing connections to capacity, generalization, and adversarial robustness. While deep networks are capable of memorizing noise data, our results suggest that they tend to prioritize learning simple patterns first. In our experiments, we expose qualitative differences in gradient-based optimization of deep neural networks (DNNs) on noise vs.~real data. We also demonstrate that for appropriately tuned explicit regularization (e.g.,~dropout) we can degrade DNN training performance on noise datasets without compromising generalization on real data. Our analysis suggests that the notions of effective capacity which are dataset independent are unlikely to explain the generalization performance of deep networks when trained with gradient based methods because training data itself plays an important role in determining the degree of memorization.}
+    }
+
+  @misc{agarwal2020estimating,
+      title={Estimating Example Difficulty Using Variance of Gradients}, 
+      author={Chirag Agarwal and Sara Hooker},
+      year={2020},
+      eprint={2008.11600},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+  }
+
+  @misc{paul2021deep,
+    title={Deep Learning on a Data Diet: Finding Important Examples Early in Training}, 
+    author={Mansheej Paul and Surya Ganguli and Gintare Karolina Dziugaite},
+    year={2021},
+    eprint={2107.07075},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+
+@misc{siddiqui2022metadata,
+  title={Metadata Archaeology: Unearthing Data Subsets by Leveraging Training Dynamics}, 
+  author={Shoaib Ahmed Siddiqui and Nitarshan Rajkumar and Tegan Maharaj and David Krueger and Sara Hooker},
+  year={2022},
+  eprint={2209.10015},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{abbe2021staircasepropertyhierarchicalstructure,
+  title={The staircase property: How hierarchical structure can guide deep learning}, 
+  author={Emmanuel Abbe and Enric Boix-Adsera and Matthew Brennan and Guy Bresler and Dheeraj Nagaraj},
+  year={2021},
+  eprint={2108.10573},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2108.10573}, 
+}
+
+@misc{hooker2019compressed,
+  title={What Do Compressed Deep Neural Networks Forget?},
+  author={Sara Hooker and Aaron Courville and Gregory Clark and Yann Dauphin and Andrea Frome},
+  year={2019},
+  eprint={1911.05248},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{hooker2020characterising,
+  title          = {{Characterising Bias in Compressed Models}},
+  author         = {Sara Hooker and Nyalleng Moorosi and Gregory Clark and Samy Bengio and Emily Denton},
+  year           = {2020}
+}
+
+@article{Mcclelland1995,
+  author  = {Mcclelland, James and Mcnaughton, Bruce and O’Reilly, Randall},
+  year    = {1995},
+  month   = {08},
+  pages   = {419-57},
+  title   = {Why There are Complementary Learning Systems in the Hippocampus and Neocortex: Insights from the Successes and Failures of Connectionist Models of Learning and Memory},
+  volume  = {102},
+  journal = {Psychological review},
+  doi     = {10.1037/0033-295X.102.3.419}
+  }
+
+  @misc{pozzobon2023goodtriever,
+    title={Goodtriever: Adaptive Toxicity Mitigation with Retrieval-augmented Models}, 
+    author={Luiza Pozzobon and Beyza Ermis and Patrick Lewis and Sara Hooker},
+    year={2023},
+    eprint={2310.07589},
+    archivePrefix={arXiv},
+    primaryClass={cs.AI}
+}
+
+@article{Goldberg1991,
+  author = {Goldberg, David},
+  title = {What every computer scientist should know about floating-point arithmetic},
+  year = {1991},
+  issue_date = {March 1991},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {23},
+  number = {1},
+  issn = {0360-0300},
+  url = {https://doi.org/10.1145/103162.103163},
+  doi = {10.1145/103162.103163},
+  abstract = {Floating-point arithmetic is considered as esoteric subject by many people. This is rather surprising, because floating-point is ubiquitous in computer systems: Almost every language has a floating-point datatype; computers from PCs to supercomputers have floating-point accelerators; most compilers will be called upon to compile floating-point algorithms from time to time; and virtually every operating system must respond to floating-point exceptions such as overflow. This paper presents a tutorial on the aspects of floating-point that have a direct impact on designers of computer systems. It begins with background on floating-point representation and rounding error, continues with a discussion of the IEEE floating point standard, and concludes with examples of how computer system builders can better support floating point.},
+  journal = {ACM Comput. Surv.},
+  month = {mar},
+  pages = {5–48},
+  numpages = {44},
+  keywords = {NaN, denormalized number, exception, floating-point, floating-point standard, gradual underflow, guard digit, overflow, relative error, rounding error, rounding mode, ulp, underflow}
+  }
+
+  @inproceedings{NEURIPS2023_42c40aff,
+    author = {Mince, Fraser and Dinh, Dzung and Kgomo, Jonas and Thompson, Neil and Hooker, Sara},
+    booktitle = {Advances in Neural Information Processing Systems},
+    editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
+    pages = {21217--21229},
+    publisher = {Curran Associates, Inc.},
+    title = {The Grand Illusion: The Myth of Software Portability and Implications for ML Progress.},
+    url = {https://proceedings.neurips.cc/paper_files/paper/2023/file/42c40aff7814e9796266e12053b1c610-Paper-Conference.pdf},
+    volume = {36},
+    year = {2023}
+    }
+
+  @misc{epoch2023trendsinmachinelearninghardware,
+    title={Trends in Machine Learning Hardware},
+    author={Marius Hobbhahn and Lennart Heim and Gökçe Aydos},
+    year={2023},
+    url={https://epochai.org/blog/trends-in-machine-learning-hardware},
+    note={Accessed: 2024-05-28}
+    }
+
+    @misc{yoo2022scalable,
+      title={Scalable Training of Language Models using JAX pjit and TPUv4}, 
+      author={Joanna Yoo and Kuba Perlin and Siddhartha Rao Kamalakara and João G. M. Araújo},
+      year={2022},
+      eprint={2204.06514},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+  }
+
+  @misc{lepikhin2020gshard,
+    title={GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding}, 
+    author={Dmitry Lepikhin and HyoukJoong Lee and Yuanzhong Xu and Dehao Chen and Orhan Firat and Yanping Huang and Maxim Krikun and Noam Shazeer and Zhifeng Chen},
+    year={2020},
+    eprint={2006.16668},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{heim2024governing,
+  title={Governing Through the Cloud: The Intermediary Role of Compute Providers in AI Regulation}, 
+  author={Lennart Heim and Tim Fist and Janet Egan and Sihao Huang and Stephen Zekany and Robert Trager and Michael A Osborne and Noa Zilberman},
+  year={2024},
+  eprint={2403.08501},
+  archivePrefix={arXiv},
+  primaryClass={cs.CY}
+}
+
+@misc{aakanksha2024multilingualalignmentprismaligning,
+  title={The Multilingual Alignment Prism: Aligning Global and Local Preferences to Reduce Harm}, 
+  author={Aakanksha and Arash Ahmadian and Beyza Ermis and Seraphina Goldfarb-Tarrant and Julia Kreutzer and Marzieh Fadaee and Sara Hooker},
+  year={2024},
+  eprint={2406.18682},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2406.18682}, 
+}
+
+@misc{geminiteam2024gemini,
+  title={Gemini: A Family of Highly Capable Multimodal Models}, 
+  author={Gemini Team and Rohan Anil and Sebastian Borgeaud and Jean-Baptiste Alayrac et al.},
+  year={2024},
+  eprint={2312.11805},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{wang2023selfconsistency,
+  title={Self-Consistency Improves Chain of Thought Reasoning in Language Models}, 
+  author={Xuezhi Wang and Jason Wei and Dale Schuurmans and Quoc Le and Ed Chi and Sharan Narang and Aakanksha Chowdhery and Denny Zhou},
+  year={2023},
+  eprint={2203.11171},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+
+@misc{shimabucoro2024llmseellmdo,
+  title={LLM See, LLM Do: Guiding Data Generation to Target Non-Differentiable Objectives}, 
+  author={Luísa Shimabucoro and Sebastian Ruder and Julia Kreutzer and Marzieh Fadaee and Sara Hooker},
+  year={2024},
+  eprint={2407.01490},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2407.01490}, 
+}
+
+@misc{ustun2024aya,
+  title={Aya Model: An Instruction Finetuned Open-Access Multilingual Language Model}, 
+  author={Ahmet Üstün and Viraat Aryabumi and Zheng-Xin Yong and Wei-Yin Ko and Daniel D'souza and Gbemileke Onilude and Neel Bhandari and Shivalika Singh and Hui-Lee Ooi and Amr Kayid and Freddie Vargus and Phil Blunsom and Shayne Longpre and Niklas Muennighoff and Marzieh Fadaee and Julia Kreutzer and Sara Hooker},
+  year={2024},
+  eprint={2402.07827},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{epoch2023tradingoffcomputeintrainingandinference,
+  title={Trading Off Compute in Training and Inference},
+  author={Pablo Villalobos and David Atkinson},
+  year={2023},
+  url={https://epochai.org/blog/trading-off-compute-in-training-and-inference},
+  note={Accessed: 2024-05-28}
+  }
+
+@misc{huang2022large,
+  title={Large Language Models Can Self-Improve},
+  author={Jiaxin Huang and Shixiang Shane Gu and Le Hou and Yuexin Wu and Xuezhi Wang and Hongkun Yu and Jiawei Han},
+  year={2022},
+  eprint={2210.11610},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{lee2024longcontext,
+  title={Can Long-Context Language Models Subsume Retrieval, RAG, SQL, and More?}, 
+  author={Jinhyuk Lee and Anthony Chen and Zhuyun Dai and Dheeru Dua and Devendra Singh Sachan and Michael Boratko and Yi Luan and Sébastien M. R. Arnold and Vincent Perot and Siddharth Dalmia and Hexiang Hu and Xudong Lin and Panupong Pasupat and Aida Amini and Jeremy R. Cole and Sebastian Riedel and Iftekhar Naim and Ming-Wei Chang and Kelvin Guu},
+  year={2024},
+  eprint={2406.13121},
+  archivePrefix={arXiv},
+  primaryClass={id='cs.CL' full_name='Computation and Language' is_active=True alt_name='cmp-lg' in_archive='cs' is_general=False description='Covers natural language processing. Roughly includes material in ACM Subject Class I.2.7. Note that work on artificial languages (programming languages, logics, formal systems) that does not explicitly address natural-language issues broadly construed (natural-language processing, computational linguistics, speech, text retrieval, etc.) is not appropriate for this area.'}
+}
+
+@inproceedings{NEURIPS2020_6b493230,
+  author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K\"{u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt\"{a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  booktitle = {Advances in Neural Information Processing Systems},
+  editor = {H. Larochelle and M. Ranzato and R. Hadsell and M.F. Balcan and H. Lin},
+  pages = {9459--9474},
+  publisher = {Curran Associates, Inc.},
+  title = {Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks},
+  url = {https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf},
+  volume = {33},
+  year = {2020}
+  }
+
+@misc{epoch2023trendsinthedollartrainingcostofmachinelearningsystems,
+  title={Trends in the Dollar Training Cost of Machine Learning Systems},
+  author={Ben Cottier},
+  year={2023},
+  url={https://epochai.org/blog/trends-in-the-dollar-training-cost-of-machine-learning-systems},
+  note={Accessed: 2024-05-28}
+  }
+
+@misc{heim2023palm,
+  title={Estimating PaLM's training cost},
+  author={Lennart Heim},
+  year={2023},
+  url={https://blog.heim.xyz/palm-training-cost/},
+  note={Accessed: 2023-08-10}
+  }
+
+  @misc{touvron2023llama,
+    title={LLaMA: Open and Efficient Foundation Language Models}, 
+    author={Hugo Touvron and Thibaut Lavril and Gautier Izacard and Xavier Martinet and Marie-Anne Lachaux and Timothée Lacroix and Baptiste Rozière and Naman Goyal and Eric Hambro and Faisal Azhar and Aurelien Rodriguez and Armand Joulin and Edouard Grave and Guillaume Lample},
+    year={2023},
+    eprint={2302.13971},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{donyehiya2023cold,
+  title={ColD Fusion: Collaborative Descent for Distributed Multitask Finetuning}, 
+  author={Shachar Don-Yehiya and Elad Venezian and Colin Raffel and Noam Slonim and Yoav Katz and Leshem Choshen},
+  year={2023},
+  eprint={2212.01378},
+  archivePrefix={arXiv},
+  primaryClass={id='cs.LG' full_name='Machine Learning' is_active=True alt_name=None in_archive='cs' is_general=False description='Papers on all aspects of machine learning research (supervised, unsupervised, reinforcement learning, bandit problems, and so on) including also robustness, explanation, fairness, and methodology. cs.LG is also an appropriate primary category for applications of machine learning methods.'}
+}
+
+@misc{borzunov2023petals,
+  title={Petals: Collaborative Inference and Fine-tuning of Large Models}, 
+  author={Alexander Borzunov and Dmitry Baranchuk and Tim Dettmers and Max Ryabinin and Younes Belkada and Artem Chumachenko and Pavel Samygin and Colin Raffel},
+  year={2023},
+  eprint={2209.01188},
+  archivePrefix={arXiv},
+  primaryClass={id='cs.LG' full_name='Machine Learning' is_active=True alt_name=None in_archive='cs' is_general=False description='Papers on all aspects of machine learning research (supervised, unsupervised, reinforcement learning, bandit problems, and so on) including also robustness, explanation, fairness, and methodology. cs.LG is also an appropriate primary category for applications of machine learning methods.'}
+}
+
+@misc{yuan2023decentralizedtrainingfoundationmodels,
+  title={Decentralized Training of Foundation Models in Heterogeneous Environments}, 
+  author={Binhang Yuan and Yongjun He and Jared Quincy Davis and Tianyi Zhang and Tri Dao and Beidi Chen and Percy Liang and Christopher Re and Ce Zhang},
+  year={2023},
+  eprint={2206.01288},
+  archivePrefix={arXiv},
+  primaryClass={cs.DC},
+  url={https://arxiv.org/abs/2206.01288}, 
+}
+
+@misc{qin2024federatedfullparametertuningbillionsized,
+  title={Federated Full-Parameter Tuning of Billion-Sized Language Models with Communication Cost under 18 Kilobytes}, 
+  author={Zhen Qin and Daoyuan Chen and Bingchen Qian and Bolin Ding and Yaliang Li and Shuiguang Deng},
+  year={2024},
+  eprint={2312.06353},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2312.06353}, 
+}
+
+@misc{zadouri2023pushing,
+  title={Pushing Mixture of Experts to the Limit: Extremely Parameter Efficient MoE for Instruction Tuning}, 
+  author={Ted Zadouri and Ahmet Üstün and Arash Ahmadian and Beyza Ermiş and Acyr Locatelli and Sara Hooker},
+  year={2023},
+  eprint={2309.05444},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{shazeer2018meshtensorflow,
+  title={Mesh-TensorFlow: Deep Learning for Supercomputers}, 
+  author={Noam Shazeer and Youlong Cheng and Niki Parmar and Dustin Tran and Ashish Vaswani and Penporn Koanantakool and Peter Hawkins and HyoukJoong Lee and Mingsheng Hong and Cliff Young and Ryan Sepassi and Blake Hechtman},
+  year={2018},
+  eprint={1811.02084},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@article{riquelme2021scaling,
+  title={Scaling vision with sparse mixture of experts},
+  author={Riquelme, Carlos and Puigcerver, Joan and Mustafa, Basil and Neumann, Maxim and Jenatton, Rodolphe and Susano Pinto, Andr{\'e} and Keysers, Daniel and Houlsby, Neil},
+  journal={Advances in Neural Information Processing Systems},
+  volume={34},
+  pages={8583--8595},
+  year={2021}
+  }
+
+@misc{du2022glam,
+    title={GLaM: Efficient Scaling of Language Models with Mixture-of-Experts}, 
+    author={Nan Du and Yanping Huang and Andrew M. Dai and Simon Tong and Dmitry Lepikhin and Yuanzhong Xu and Maxim Krikun and Yanqi Zhou and Adams Wei Yu and Orhan Firat and Barret Zoph and Liam Fedus and Maarten Bosma and Zongwei Zhou and Tao Wang and Yu Emma Wang and Kellie Webster and Marie Pellat and Kevin Robinson and Kathleen Meier-Hellstern and Toju Duke and Lucas Dixon and Kun Zhang and Quoc V Le and Yonghui Wu and Zhifeng Chen and Claire Cui},
+    year={2022},
+    eprint={2112.06905},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{fedus2022switch,
+  title={Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity}, 
+  author={William Fedus and Barret Zoph and Noam Shazeer},
+  year={2022},
+  eprint={2101.03961},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{tan2024scattered,
+  title={Scattered Mixture-of-Experts Implementation}, 
+  author={Shawn Tan and Yikang Shen and Rameswar Panda and Aaron Courville},
+  year={2024},
+  eprint={2403.08245},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@article{jiang2024mixtral,
+  title={Mixtral of experts},
+  author={Jiang, Albert Q and Sablayrolles, Alexandre and Roux, Antoine and Mensch, Arthur and Savary, Blanche and Bamford, Chris and Chaplot, Devendra Singh and Casas, Diego de las and Hanna, Emma Bou and Bressand, Florian and others},
+  journal={arXiv preprint arXiv:2401.04088},
+  year={2024}
+  }
+
+@misc{sukhbaatar2024branchtrainmix,
+  title={Branch-Train-MiX: Mixing Expert LLMs into a Mixture-of-Experts LLM}, 
+  author={Sainbayar Sukhbaatar and Olga Golovneva and Vasu Sharma and Hu Xu and Xi Victoria Lin and Baptiste Rozière and Jacob Kahn and Daniel Li and Wen-tau Yih and Jason Weston and Xian Li},
+  year={2024},
+  eprint={2403.07816},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{ko2023fairensemble,
+  title={FAIR-Ensemble: When Fairness Naturally Emerges From Deep Ensembling}, 
+  author={Wei-Yin Ko and Daniel D'souza and Karina Nguyen and Randall Balestriero and Sara Hooker},
+  year={2023},
+  eprint={2303.00586},
+  archivePrefix={arXiv},
+  primaryClass={stat.ML}
+}
+
+@misc{li2024agents,
+  title={More Agents Is All You Need}, 
+  author={Junyou Li and Qin Zhang and Yangbin Yu and Qiang Fu and Deheng Ye},
+  year={2024},
+  eprint={2402.05120},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{compound-ai-blog,
+  title={The Shift from Models to Compound AI Systems},
+  author={Matei Zaharia and Omar Khattab and Lingjiao Chen and Jared Quincy Davis
+          and Heather Miller and Chris Potts and James Zou and Michael Carbin
+          and Jonathan Frankle and Naveen Rao and Ali Ghodsi},
+  howpublished={\url{https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/}},
+  year={2024}
+  }
+
+@inproceedings{NIPS2015_86df7dcf,
+  author = {Sculley, D. and Holt, Gary and Golovin, Daniel and Davydov, Eugene and Phillips, Todd and Ebner, Dietmar and Chaudhary, Vinay and Young, Michael and Crespo, Jean-Fran\c{c}ois and Dennison, Dan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  editor = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and R. Garnett},
+  pages = {},
+  publisher = {Curran Associates, Inc.},
+  title = {Hidden Technical Debt in Machine Learning Systems},
+  url = {https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf},
+  volume = {28},
+  year = {2015}
+  }
+
+@misc{jatho2023concretesafetymlproblems,
+    title={Concrete Safety for ML Problems: System Safety for ML Development and Assessment}, 
+    author={Edgar W. Jatho and Logan O. Mailloux and Eugene D. Williams and Patrick McClure and Joshua A. Kroll},
+    year={2023},
+    eprint={2302.02972},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG},
+    url={https://arxiv.org/abs/2302.02972}, 
+}
+
+@misc{raji2020closingaiaccountabilitygap,
+  title={Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing}, 
+  author={Inioluwa Deborah Raji and Andrew Smart and Rebecca N. White and Margaret Mitchell and Timnit Gebru and Ben Hutchinson and Jamila Smith-Loud and Daniel Theron and Parker Barnes},
+  year={2020},
+  eprint={2001.00973},
+  archivePrefix={arXiv},
+  primaryClass={cs.CY},
+  url={https://arxiv.org/abs/2001.00973}, 
+}
+
+@article{paleyes2022,
+  author = {Paleyes, Andrei and Urma, Raoul-Gabriel and Lawrence, Neil D.},
+  title = {Challenges in Deploying Machine Learning: A Survey of Case Studies},
+  year = {2022},
+  issue_date = {June 2023},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {55},
+  number = {6},
+  issn = {0360-0300},
+  url = {https://doi.org/10.1145/3533378},
+  doi = {10.1145/3533378},
+  abstract = {In recent years, machine learning has transitioned from a field of academic research interest to a field capable of solving real-world business problems. However, the deployment of machine learning models in production systems can present a number of issues and concerns. This survey reviews published reports of deploying machine learning solutions in a variety of use cases, industries, and applications and extracts practical considerations corresponding to stages of the machine learning deployment workflow. By mapping found challenges to the steps of the machine learning deployment workflow, we show that practitioners face issues at each stage of the deployment process. The goal of this article is to lay out a research agenda to explore approaches addressing these challenges.},
+  journal = {ACM Comput. Surv.},
+  month = {dec},
+  articleno = {114},
+  numpages = {29},
+  keywords = {Machine learning applications, sofware deployment}
+  }
+
+  @misc{FrontierModelForum,
+    author = {Frontier Model Forum},
+    title = {Issue Brief: Measuring Training Compute},
+    howpublished = {\url{https://www.frontiermodelforum.org/updates/issue-brief-measuring-training-compute/}},
+    year = {2023}
+    }
+
+  @misc{shankar2022operationalizing,
+    title={Operationalizing Machine Learning: An Interview Study}, 
+    author={Shreya Shankar and Rolando Garcia and Joseph M. Hellerstein and Aditya G. Parameswaran},
+    year={2022},
+    eprint={2209.09125},
+    archivePrefix={arXiv},
+    primaryClass={id='cs.SE' full_name='Software Engineering' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers design tools, software metrics, testing and debugging, programming environments, etc. Roughly includes material in all of ACM Subject Classes D.2, except that D.2.4 (program verification) should probably have Logics in Computer Science as the primary subject area.'}
+}
+
+@misc{wang2023voyageropenendedembodiedagent,
+  title={Voyager: An Open-Ended Embodied Agent with Large Language Models}, 
+  author={Guanzhi Wang and Yuqi Xie and Yunfan Jiang and Ajay Mandlekar and Chaowei Xiao and Yuke Zhu and Linxi Fan and Anima Anandkumar},
+  year={2023},
+  eprint={2305.16291},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2305.16291}, 
+}
+
+@misc{anwar2024foundationalchallengesassuringalignment,
+  title={Foundational Challenges in Assuring Alignment and Safety of Large Language Models}, 
+  author={Usman Anwar and Abulhair Saparov and Javier Rando and Daniel Paleka and Miles Turpin and Peter Hase and Ekdeep Singh Lubana and Erik Jenner and Stephen Casper and Oliver Sourbut and Benjamin L. Edelman and Zhaowei Zhang and Mario Günther and Anton Korinek and Jose Hernandez-Orallo and Lewis Hammond and Eric Bigelow and Alexander Pan and Lauro Langosco and Tomasz Korbak and Heidi Zhang and Ruiqi Zhong and Seán Ó hÉigeartaigh and Gabriel Recchia and Giulio Corsi and Alan Chan and Markus Anderljung and Lilian Edwards and Yoshua Bengio and Danqi Chen and Samuel Albanie and Tegan Maharaj and Jakob Foerster and Florian Tramer and He He and Atoosa Kasirzadeh and Yejin Choi and David Krueger},
+  year={2024},
+  eprint={2404.09932},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2404.09932}, 
+}
+
+@misc{mialon2023augmentedlanguagemodelssurvey,
+  title={Augmented Language Models: a Survey}, 
+  author={Grégoire Mialon and Roberto Dessì and Maria Lomeli and Christoforos Nalmpantis and Ram Pasunuru and Roberta Raileanu and Baptiste Rozière and Timo Schick and Jane Dwivedi-Yu and Asli Celikyilmaz and Edouard Grave and Yann LeCun and Thomas Scialom},
+  year={2023},
+  eprint={2302.07842},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2302.07842}, 
+}
+
+@misc{lin2024scaling,
+  title={Scaling Laws Behind Code Understanding Model},
+  author={Jiayi Lin and Hande Dong and Yutao Xie and Lei Zhang},
+  year={2024},
+  eprint={2402.12813},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE}
+}
+
+@misc{epoch2024biologicalsequencemodelsinthecontextoftheaidirectives,
+  title={Biological Sequence Models in the Context of the AI Directives},
+  author={Nicole Maug and Aidan O'Gara and Tamay Besiroglu},
+  year={2024},
+  url={https://epochai.org/blog/biological-sequence-models-in-the-context-of-the-ai-directives},
+  note={Accessed: 2024-05-19}
+  }
+
+  
+@article{arivazhagan2019massively,
+  title={Massively multilingual neural machine translation in the wild: Findings and challenges},
+  author={Arivazhagan, Naveen and Bapna, Ankur and Firat, Orhan and Lepikhin, Dmitry and Johnson, Melvin and Krikun, Maxim and Chen, Mia Xu and Cao, Yuan and Foster, George and Cherry, Colin and others},
+  journal={arXiv preprint arXiv:1907.05019},
+  year={2019}
+  }
+
+@article{conneau2019unsupervised,
+title        = {Unsupervised Cross-lingual Representation Learning at Scale},
+author       = {Conneau, Alexis and Khandelwal, Kartikay and Goyal, Naman and Chaudhary, Vishrav and Wenzek, Guillaume and Guzm{\'a}n, Francisco and Grave, Edouard and Ott, Myle and Zettlemoyer, Luke and Stoyanov, Veselin},
+year         = 2019,
+month        = jul,
+booktitle    = {Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics},
+publisher    = {Association for Computational Linguistics},
+address      = {Online},
+pages        = {8440--8451},
+doi          = {10.18653/v1/2020.acl-main.747},
+url          = {https://aclanthology.org/2020.acl-main.747}
+}
+
+@inproceedings{pfeiffer2022lifting,
+  title        = {Lifting the Curse of Multilinguality by Pre-training Modular Transformers},
+  author       = {Pfeiffer, Jonas and Goyal, Naman and Lin, Xi and Li, Xian and Cross, James and Riedel, Sebastian and Artetxe, Mikel},
+  year         = 2022,
+  month        = jul,
+  booktitle    = {Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
+  publisher    = {Association for Computational Linguistics},
+  address      = {Seattle, United States},
+  pages        = {3479--3495},
+  doi          = {10.18653/v1/2022.naacl-main.255},
+  url          = {https://aclanthology.org/2022.naacl-main.255}
+  }
+
+
+@misc{chen2024xtrimopglm,
+  title={xTrimoPGLM: Unified 100B-Scale Pre-trained Transformer for Deciphering the Language of Protein}, 
+  author={Bo Chen and Xingyi Cheng and Pan Li and Yangli-ao Geng and Jing Gong and Shen Li and Zhilei Bei and Xu Tan and Boyan Wang and Xin Zeng and Chiming Liu and Aohan Zeng and Yuxiao Dong and Jie Tang and Le Song},
+  year={2024},
+  eprint={2401.06199},
+  archivePrefix={arXiv},
+  primaryClass={q-bio.QM}
+}
+
+@article{lin2023,
+  author = {Zeming Lin  and Halil Akin  and Roshan Rao  and Brian Hie  and Zhongkai Zhu  and Wenting Lu  and Nikita Smetanin  and Robert Verkuil  and Ori Kabeli  and Yaniv Shmueli  and Allan dos Santos Costa  and Maryam Fazel-Zarandi  and Tom Sercu  and Salvatore Candido  and Alexander Rives },
+  title = {Evolutionary-scale prediction of atomic-level protein structure with a language model},
+  journal = {Science},
+  volume = {379},
+  number = {6637},
+  pages = {1123-1130},
+  year = {2023},
+  doi = {10.1126/science.ade2574},
+  URL = {https://www.science.org/doi/abs/10.1126/science.ade2574},
+  eprint = {https://www.science.org/doi/pdf/10.1126/science.ade2574},
+  abstract = {Recent advances in machine learning have leveraged evolutionary information in multiple sequence alignments to predict protein structure. We demonstrate direct inference of full atomic-level protein structure from primary sequence using a large language model. As language models of protein sequences are scaled up to 15 billion parameters, an atomic-resolution picture of protein structure emerges in the learned representations. This results in an order-of-magnitude acceleration of high-resolution structure prediction, which enables large-scale structural characterization of metagenomic proteins. We apply this capability to construct the ESM Metagenomic Atlas by predicting structures for \&gt;617 million metagenomic protein sequences, including \&gt;225 million that are predicted with high confidence, which gives a view into the vast breadth and diversity of natural proteins. Machine learning methods for protein structure prediction have taken advantage of the evolutionary information present in multiple sequence alignments to derive accurate structural information, but predicting structure accurately from a single sequence is much more difficult. Lin et al. trained transformer protein language models with up to 15 billion parameters on experimental and high-quality predicted structures and found that information about atomic-level structure emerged in the model as it was scaled up. They created ESMFold, a sequence-to-structure predictor that is nearly as accurate as alignment-based methods and considerably faster. The increased speed permitted the generation of a database, the ESM Metagenomic Atlas, containing more than 600 million metagenomic proteins. —MAF A protein language model enables structure prediction and analysis of more than 600 million metagenomic proteins.}}
+
+  
+  @article{elnaggar2020,
+    author       = {Ahmed Elnaggar and
+                    Michael Heinzinger and
+                    Christian Dallago and
+                    Ghalia Rehawi and
+                    Yu Wang and
+                    Llion Jones and
+                    Tom Gibbs and
+                    Tamas Feher and
+                    Christoph Angerer and
+                    Martin Steinegger and
+                    Debsindhu Bhowmik and
+                    Burkhard Rost},
+    title        = {ProtTrans: Towards Cracking the Language of Life's Code Through Self-Supervised
+                    Deep Learning and High Performance Computing},
+    journal      = {CoRR},
+    volume       = {abs/2007.06225},
+    year         = {2020},
+    url          = {https://arxiv.org/abs/2007.06225},
+    eprinttype    = {arXiv},
+    eprint       = {2007.06225},
+    timestamp    = {Wed, 28 Dec 2022 14:59:10 +0100},
+    biburl       = {https://dblp.org/rec/journals/corr/abs-2007-06225.bib},
+    bibsource    = {dblp computer science bibliography, https://dblp.org}
+    }
+
+@article{Dalla-Torre2023.01.11.523679,
+  author = {Dalla-Torre, Hugo and Gonzalez, Liam and Revilla, Javier Mendoza and Carranza, Nicolas Lopez and Grzywaczewski, Adam Henryk and Oteri, Francesco and Dallago, Christian and Trop, Evan and Sirelkhatim, Hassan and Richard, Guillaume and Skwark, Marcin and Beguir, Karim and Lopez, Marie and Pierrot, Thomas},
+  title = {The Nucleotide Transformer: Building and Evaluating Robust Foundation Models for Human Genomics},
+  elocation-id = {2023.01.11.523679},
+  year = {2023},
+  doi = {10.1101/2023.01.11.523679},
+  publisher = {Cold Spring Harbor Laboratory},
+  abstract = {Closing the gap between measurable genetic information and observable traits is a longstanding challenge in genomics. Yet, the prediction of molecular phenotypes from DNA sequences alone remains limited and inaccurate, often driven by the scarcity of annotated data and the inability to transfer learnings between prediction tasks. Here, we present an extensive study of foundation models pre-trained on DNA sequences, named the Nucleotide Transformer, integrating information from 3,202 diverse human genomes, as well as 850 genomes from a wide range of species, including model and non-model organisms. These transformer models yield transferable, context-specific representations of nucleotide sequences, which allow for accurate molecular phenotype prediction even in low-data settings. We show that the representations alone match or outperform specialized methods on 11 of 18 prediction tasks, and up to 15 after fine-tuning. Despite no supervision, the transformer models learnt to focus attention on key genomic elements, including those that regulate gene expression, such as enhancers. Lastly, we demonstrate that utilizing model representations alone can improve the prioritization of functional genetic variants. The training and application of foundational models in genomics explored in this study provide a widely applicable stepping stone to bridge the gap of accurate molecular phenotype prediction from DNA sequence alone.Competing Interest StatementThe authors have declared no competing interest.},
+  URL = {https://www.biorxiv.org/content/early/2023/01/15/2023.01.11.523679},
+  eprint = {https://www.biorxiv.org/content/early/2023/01/15/2023.01.11.523679.full.pdf},
+  journal = {bioRxiv}
+  }
+
+
+  @misc{fang2024domainagnostic,
+    title={Domain-Agnostic Molecular Generation with Chemical Feedback}, 
+    author={Yin Fang and Ningyu Zhang and Zhuo Chen and Lingbing Guo and Xiaohui Fan and Huajun Chen},
+    year={2024},
+    eprint={2301.11259},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+
+@misc{kaplan2020scaling,
+  title={Scaling Laws for Neural Language Models}, 
+  author={Jared Kaplan and Sam McCandlish and Tom Henighan and Tom B. Brown and Benjamin Chess and Rewon Child and Scott Gray and Alec Radford and Jeffrey Wu and Dario Amodei},
+  year={2020},
+  eprint={2001.08361},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{hernandez2021scaling,
+  title={Scaling Laws for Transfer}, 
+  author={Danny Hernandez and Jared Kaplan and Tom Henighan and Sam McCandlish},
+  year={2021},
+  eprint={2102.01293},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@inproceedings{Dhariwal2021DataAP,
+  title={Data and Parameter Scaling Laws for Neural Machine Translation},
+  author={Prafulla Dhariwal and Girish Sastry and Mark Chen and Dan I. Moldovan and Alex and Beutel and Jonathan Deaton},
+  year={2021},
+  url={https://api.semanticscholar.org/CorpusID:235415752}
+  }
+
+
+  @misc{bowman2023things,
+    title={Eight Things to Know about Large Language Models}, 
+    author={Samuel R. Bowman},
+    year={2023},
+    eprint={2304.00612},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+
+@misc{anthropic_responsible_scaling,
+  title = {Responsible Scaling of AI},
+  url = {https://www-cdn.anthropic.com/1adf000c8f675958c2ee23805d91aaade1cd4613/responsible-scaling-policy.pdf},
+  author= {Anthropic}, 
+  year = {2023}
+}
+
+@misc{openai_global_affairs,
+  title = {Our Approach to Frontier Risk},
+  url = {https://openai.com/global-affairs/our-approach-to-frontier-risk/},
+  journal = {OpenAI},
+  author = {OpenAI},
+  year = {2023}
+}
+
+@article{kaminski_regulating_2023,
+  title = {Regulating {the} {Risks} of {AI}},
+  volume = {103},
+  url = {https://ssrn.com/abstract=4195066},
+  doi = {10.2139/ssrn.4195066},
+  number = {1347},
+  journal = {Boston University Law Review},
+  author = {Kaminski, Margot E.},
+  year = {2023},
+  note = {U of Colorado Law Legal Studies Research Paper No. 22-21}
+  }
+
+@inproceedings{Ganguli_2022,
+  series={FAccT ’22},
+    title={Predictability and Surprise in Large Generative Models},
+    url={http://dx.doi.org/10.1145/3531146.3533229},
+    DOI={10.1145/3531146.3533229},
+    booktitle={2022 ACM Conference on Fairness, Accountability, and Transparency},
+    publisher={ACM},
+    author={Ganguli, Deep and Hernandez, Danny and Lovitt, Liane and Askell, Amanda and Bai, Yuntao and Chen, Anna and Conerly, Tom and Dassarma, Nova and Drain, Dawn and Elhage, Nelson and El Showk, Sheer and Fort, Stanislav and Hatfield-Dodds, Zac and Henighan, Tom and Johnston, Scott and Jones, Andy and Joseph, Nicholas and Kernian, Jackson and Kravec, Shauna and Mann, Ben and Nanda, Neel and Ndousse, Kamal and Olsson, Catherine and Amodei, Daniela and Brown, Tom and Kaplan, Jared and McCandlish, Sam and Olah, Christopher and Amodei, Dario and Clark, Jack},
+    year={2022},
+    month=jun, collection={FAccT ’22} }
+
+
+@misc{schaeffer2023emergent,
+  title={Are Emergent Abilities of Large Language Models a Mirage?}, 
+  author={Rylan Schaeffer and Brando Miranda and Sanmi Koyejo},
+  year={2023},
+  eprint={2304.15004},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}
+}
+
+@misc{schaeffer2024predictingdownstreamcapabilitiesfrontier,
+  title={Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?}, 
+  author={Rylan Schaeffer and Hailey Schoelkopf and Brando Miranda and Gabriel Mukobi and Varun Madan and Adam Ibrahim and Herbie Bradley and Stella Biderman and Sanmi Koyejo},
+  year={2024},
+  eprint={2406.04391},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2406.04391}, 
+}
+
+@misc{hu2024predictingemergentabilitiesinfinite,
+  title={Predicting Emergent Abilities with Infinite Resolution Evaluation}, 
+  author={Shengding Hu and Xin Liu and Xu Han and Xinrong Zhang and Chaoqun He and Weilin Zhao and Yankai Lin and Ning Ding and Zebin Ou and Guoyang Zeng and Zhiyuan Liu and Maosong Sun},
+  year={2024},
+  eprint={2310.03262},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2310.03262}, 
+}
+
+
+@misc{Wei2022,
+  title          = {{Emergent Abilities of Large Language Models}},
+  author         = {Wei, Jason and Tay, Yi and Bommasani, Rishi and Raffel, Colin and Zoph, Barret and Borgeaud, Sebastian and Yogatama, Dani and Bosma, Maarten and Zhou, Denny and Metzler, Donald and Chi, Ed H. and Hashimoto, Tatsunori and Vinyals, Oriol and Liang, Percy and Dean, Jeff and Fedus, William},
+  year           = {2022},
+  publisher      = {arXiv},
+  url            = {https://arxiv.org/abs/2206.07682}
+}
+
+@misc{srivastava2023imitation,
+  title={Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models}, 
+  author={Aarohi Srivastava and Abhinav Rastogi and Abhishek Rao and Abu Awal Md Shoeb and Abubakar Abid et al.},
+  year={2023},
+  eprint={2206.04615},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+
+@misc{besiroglu2024chinchilla,
+  title={Chinchilla Scaling: A replication attempt}, 
+  author={Tamay Besiroglu and Ege Erdil and Matthew Barnett and Josh You},
+  year={2024},
+  eprint={2404.10102},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}
+}
+
+@misc{caballero2023broken,
+  title={Broken Neural Scaling Laws}, 
+  author={Ethan Caballero and Kshitij Gupta and Irina Rish and David Krueger},
+  year={2023},
+  eprint={2210.14891},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+
+@misc{ruan2024observationalscalinglawspredictability,
+  title={Observational Scaling Laws and the Predictability of Language Model Performance}, 
+  author={Yangjun Ruan and Chris J. Maddison and Tatsunori Hashimoto},
+  year={2024},
+  eprint={2405.10938},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2405.10938}, 
+}
+
+@article{powerlawtruths,
+  author = {Michael P. H. Stumpf  and Mason A. Porter },
+  title = {Critical Truths About Power Laws},
+  journal = {Science},
+  volume = {335},
+  number = {6069},
+  pages = {665-666},
+  year = {2012},
+  doi = {10.1126/science.1216142},
+  URL = {https://www.science.org/doi/abs/10.1126/science.1216142},
+  eprint = {https://www.science.org/doi/pdf/10.1126/science.1216142},
+  abstract = {Most reported power laws lack statistical support and mechanistic backing. The ability to summarize observations using explanatory and predictive theories is the greatest strength of modern science. A theoretical framework is perceived as particularly successful if it can explain very disparate facts. The observation that some apparently complex phenomena can exhibit startling similarities to dynamics generated with simple mathematical models (1) has led to empirical searches for fundamental laws by inspecting data for qualitative agreement with the behavior of such models. A striking feature that has attracted considerable attention is the apparent ubiquity of power-law relationships in empirical data. However, although power laws have been reported in areas ranging from finance and molecular biology to geophysics and the Internet, the data are typically insufficient and the mechanistic insights are almost always too limited for the identification of power-law behavior to be scientifically useful (see the figure). Indeed, even most statistically “successful” calculations of power laws offer little more than anecdotal value.}}
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
 
 </script> 
 
