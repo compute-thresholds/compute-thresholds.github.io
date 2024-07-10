@@ -518,12 +518,7 @@ figcaption .strong_, {
 
              <!-- Add Figure 3 from Paper here -->
 
-                 <!-- <div class="content_reduced_slightly">
-     <img src="https://cdn.glitch.com/f1ebd1ee-d1ac-4538-8ad5-0034e332e4ae%2Fsynaptic_pruning_image.png?v=1574277111414" alt="abstract_1" style="width:100%">
-      <div class="figcaption">
-         <strong_>Synaptic pruning removes redundant neurons and strengthens connections that are most useful for the environment. (Figure courtesy of Seeman, 1999)</strong_><br>
-       </div>
-             </div>   -->
+                   
     
 		 <p> These are not isolated examples, but rather indicative of an overall trend where there is no guarantee 
             larger models consistently outperform smaller models. Figure \ref{fig:above_13_b} plots the scores of models 
@@ -562,6 +557,18 @@ figcaption .strong_, {
                 investments in better data quality mitigate the need for more weights <dt-cite key="singh2024aya,penedo2023refinedweb,raffel2020exploring,lee2022deduplicating"></dt-cite>. 
                 If the size of a training dataset can be reduced without impacting performance <dt-cite key="marion2023more"></dt-cite>, 
                 training time is reduced. This directly impacts the number of training FLOP and means less compute is needed. </p>
+
+                <div class="content_reduced_slightly">
+                  <img src="./images/computers_labatory.jpg" alt="byte_magazine_cover1" style="width:100%">
+                   <div class="figcaption">
+                      <strong_>Bytes Magazine Cover, Volume 5, 1980. Compute is rarely the only determinant of progress.
+                       Data quality <dt-cite key="marion2023more"></dt-cite>, instruction-finetuning <dt-cite key="singh2024aya"></dt-cite>, preference training 
+                       <dt-cite key="dang2024rlhfspeaklanguagesunlocking"></dt-cite>, retrieval augmented networks <dt-cite key="pozzobon2023goodtriever"></dt-cite>, 
+                       enabled tool use \citep{qin2023toolllm}, chain-of-thought reasoning <dt-cite key="wei2023chainofthought"></dt-cite>, 
+                       increased context-length <dt-cite key="xiong2023effective"></dt-cite> are all examples of optimization techniques which add 
+                       little or no <i>>training</i> FLOP but result in significant gains in performance.</strong_><br>
+                    </div>
+                </div>
 
             <p> <boldtext>Optimization breakthroughs compensate for compute.</boldtext> Progress over the last few years has been as 
                 much due to optimization improvements as it has been due to compute. This includes extending pre-training 
